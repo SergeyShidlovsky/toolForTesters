@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="bin">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Maven/apache-maven-3.5.0/bin" recursive="false" type="SOURCES" />
+  </library>
+</component>

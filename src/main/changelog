@@ -1,0 +1,8 @@
+<13.06.2017> tool try 2 - implementation of test buttons
+<15.06.2017> tool try 3 - implementations of Action Listeners for clicking buttons
+<02.07.2017> tool try 5 - after moving testFrame from Windows Vista(jdk 1.8.0_101 , Idea 2016.3.2) to
+        Windows 7(jdk 1.8.0_131) "final" access modifier to "button1"...."buttonN" of "Exec" and "Link" inner classes
+        - refactor  KeyListener method implementation from  "if-else-if" construction to "if-switch case" construction
+        - Added keyboard listener to "Links" tab
+
+<04.07.2017> tool try 7 - added several buttons to "Exec" classes
