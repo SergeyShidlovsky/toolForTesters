@@ -43,6 +43,17 @@ public class TestFrame extends JFrame {
                 button2.setSize(313, 110);
                 add(button2);
 
+                //Adding Status Label that is running down time of scripts execution
+                JLabel statusLabel = new JLabel("                      Wait time                        ");
+                statusLabel.setFont(font);
+                statusLabel.setVisible(true);
+                statusLabel.setSize(313,110);
+                statusLabel.setHorizontalAlignment(2);
+                statusLabel.setLocation(200,200);
+                add(statusLabel);
+
+
+
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
                     @Override
