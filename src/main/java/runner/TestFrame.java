@@ -22,6 +22,9 @@ public class TestFrame extends JFrame {
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
 
+        //добавить лейбел .который будет показывать время выполненния скрипта
+        //и будет прятаться после того, как таймер пройдет
+
         class AppDataLogs1 extends JPanel{
             AppDataLogs1 () {
 
