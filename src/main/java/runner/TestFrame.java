@@ -15,7 +15,7 @@ public class TestFrame extends JFrame {
 
     public TestFrame() {
 
-        super("Тестовое окно");
+        super("Tool For QA Engineers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final Font font = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 10);
@@ -24,6 +24,78 @@ public class TestFrame extends JFrame {
 
         //добавить лейбел .который будет показывать время выполненния скрипта
         //и будет прятаться после того, как таймер пройдет
+
+        class Template extends JPanel{
+            Template () {
+
+                //Configure visual settings of Button1
+                final JButton button1 = new JButton("Open Appdata [1]");
+                button1.setFont(font);
+                button1.setToolTipText("Opens %Appata% folder");
+                button1.setSize(313, 110);
+                add(button1);
+
+                //Configure visual setting of Button2
+                final JButton button2 = new JButton("Open logs [2]");
+                button2.setFont(font);
+                button2.setVisible(true);
+                button2.setToolTipText("Opens CUE Log folder");
+                button2.setSize(313, 110);
+                add(button2);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add ActionListeners of Button2
+                button2.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button2 will perform next actions
+                        if(ae.getSource() == button2)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
+                KeyListener listener = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+                            case KeyEvent.VK_2:
+                                button2.doClick();
+                                break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener);
+
+                this.addKeyListener(listener);
+
+            }
+        }
 
         class AppDataLogs1 extends JPanel{
             AppDataLogs1 () {
@@ -853,6 +925,8 @@ public class TestFrame extends JFrame {
             }
         }
 
+        tabbedPane.addTab("Template",new Template(){
+        });
 
         tabbedPane.addTab("AppData&Logs",new AppDataLogs1(){
         });
@@ -870,7 +944,7 @@ public class TestFrame extends JFrame {
         });
 
 
-        setPreferredSize(new Dimension(385, 215));
+        setPreferredSize(new Dimension(485, 215));
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
