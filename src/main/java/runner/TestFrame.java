@@ -13,19 +13,24 @@ import javax.swing.*;
 public class TestFrame extends JFrame {
     static int i = 0;
 
+    private JLabel statusLabel;
+    private Timer timer;
+
     public TestFrame() {
 
         super("Tool For QA Engineers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //Font of Buttons
         final Font font = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 10);
+        //Font of Label
+        final Font labelFont = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 20);
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
 
-        //добавить лейбел .который будет показывать время выполненния скрипта
-        //и будет прятаться после того, как таймер пройдет
-
         class Template extends JPanel{
+
+
             Template () {
 
                 //Configure visual settings of Button1
@@ -43,16 +48,18 @@ public class TestFrame extends JFrame {
                 button2.setSize(313, 110);
                 add(button2);
 
-                //Adding Status Label that is running down time of scripts execution
-                JLabel statusLabel = new JLabel("                      Wait time                        ");
-                statusLabel.setFont(font);
+                //Adding Status Label  on Tab that is running down time of scripts execution
+                statusLabel = new JLabel("                      Start Script                      ");
+                statusLabel.setFont(labelFont);
                 statusLabel.setVisible(true);
                 statusLabel.setSize(313,110);
                 statusLabel.setHorizontalAlignment(2);
                 statusLabel.setLocation(200,200);
                 add(statusLabel);
 
-
+                //Adding timer execution
+                final TimerTick tm = new TimerTick();
+                timer = new Timer(1000, tm);
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
@@ -64,6 +71,9 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                                timer.stop();        //Stopping previous timer before execution of current script
+                                tm.setCountdown(10); //Setting time of  Script execution
+                                timer.start();       //Starting timer after script initiation
                             }
                             catch (Exception r){}
                         }
@@ -80,6 +90,9 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                                timer.stop();       //Stopping previous timer before execution of current script
+                                tm.setCountdown(2); //Setting time of  Script execution
+                                timer.start();      //Starting timer after script initiation
                             }
                             catch (Exception r){}
                         }
@@ -106,14 +119,30 @@ public class TestFrame extends JFrame {
                 this.addKeyListener(listener);
 
             }
+
+            //Class that displays time running down after script is started
+            class TimerTick implements ActionListener {
+
+                int countdown;
+                public void setCountdown(int countdown) {
+                    this.countdown = countdown;
+                }
+
+                public void actionPerformed(ActionEvent e) {
+
+                    countdown--;
+                    statusLabel.setText("                      Wait time " + String.valueOf(countdown) +
+                            "                       " );
+                    if (countdown == 0) {
+                        timer.stop();
+                        statusLabel.setText("                      Start Script                      ");
+                    }
+                }
+            }
         }
 
         class AppDataLogs1 extends JPanel{
             AppDataLogs1 () {
-
-                // MyKey listener = new MyKey();
-                // addKeyListener(listener);
-                // setFocusable(true);
 
                 //Configure visual settings of Button1
                 final JButton button1 = new JButton("Open Appdata [1]");
@@ -320,24 +349,7 @@ public class TestFrame extends JFrame {
 
                 this.addKeyListener(listener);
 
-
-
-
-
             }
-            //class MyKey implements KeyListener{
-            //    public void keyPressed(KeyEvent event){
-            //        if (event.getKeyCode() == KeyEvent.VK_ENTER){
-            //            //обработка нажатия ENTER
-            //           ;
-            //        }
-            //    }
-            //   public void keyReleased(KeyEvent event){
-            //   }
-            //   public void keyTyped(KeyEvent event){
-
-            //   }
-            //}
 
         }
 
@@ -426,8 +438,6 @@ public class TestFrame extends JFrame {
                             }
                             catch (Exception r){}
                         }
-
-                        // СМОТРИ СЮДА http://forum.sources.ru/index.php?showtopic=133192&view=showall
                     }
                 });
 
@@ -939,6 +949,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("Template",new Template(){
         });
 
+
         tabbedPane.addTab("AppData&Logs",new AppDataLogs1(){
         });
 
@@ -953,7 +964,6 @@ public class TestFrame extends JFrame {
 
         tabbedPane.addTab("Installation",new Installation5(){
         });
-
 
         setPreferredSize(new Dimension(485, 215));
         pack();
