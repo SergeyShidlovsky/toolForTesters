@@ -11,9 +11,11 @@ import javax.swing.*;
 //See changelog.txt for qny questions
 
 public class TestFrame extends JFrame {
-    static int i = 0;
 
-    private JLabel statusLabel;
+    //Set quantity of tab Here
+    int quantity = 6;
+
+    private JLabel[] statusLabel = new JLabel[quantity];
     private Timer timer;
 
     public TestFrame() {
@@ -27,6 +29,16 @@ public class TestFrame extends JFrame {
         final Font labelFont = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 20);
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
+
+        //Adding Status Labels  on each  Tab that is running down time of scripts execution
+        for (int i = 0; i < quantity; i++) {
+            statusLabel[i] = new JLabel("                      Start Script                      ");
+            statusLabel[i].setFont(labelFont);
+            statusLabel[i].setVisible(true);
+            statusLabel[i].setSize(313,110);
+            statusLabel[i].setHorizontalAlignment(2);
+            statusLabel[i].setLocation(200,200);
+        }
 
         class Template extends JPanel{
 
@@ -48,14 +60,7 @@ public class TestFrame extends JFrame {
                 button2.setSize(313, 110);
                 add(button2);
 
-                //Adding Status Label  on Tab that is running down time of scripts execution
-                statusLabel = new JLabel("                      Start Script                      ");
-                statusLabel.setFont(labelFont);
-                statusLabel.setVisible(true);
-                statusLabel.setSize(313,110);
-                statusLabel.setHorizontalAlignment(2);
-                statusLabel.setLocation(200,200);
-                add(statusLabel);
+                add(statusLabel[0]);
 
                 //Adding timer execution
                 final TimerTick tm = new TimerTick();
@@ -71,6 +76,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                                add(statusLabel[0]);
                                 timer.stop();        //Stopping previous timer before execution of current script
                                 tm.setCountdown(10); //Setting time of  Script execution
                                 timer.start();       //Starting timer after script initiation
@@ -90,6 +96,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                                add(statusLabel[0]);
                                 timer.stop();       //Stopping previous timer before execution of current script
                                 tm.setCountdown(2); //Setting time of  Script execution
                                 timer.start();      //Starting timer after script initiation
@@ -115,7 +122,7 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener);
-
+                this.add(add(statusLabel[0]));
                 this.addKeyListener(listener);
 
             }
@@ -131,11 +138,17 @@ public class TestFrame extends JFrame {
                 public void actionPerformed(ActionEvent e) {
 
                     countdown--;
-                    statusLabel.setText("                      Wait time " + String.valueOf(countdown) +
-                            "                       " );
+                    for (int i = 0; i < statusLabel.length; i++) {
+
+                        statusLabel[i].setText("                      Wait time " + String.valueOf(countdown) +
+                                "                       " );
+                    }
+
                     if (countdown == 0) {
                         timer.stop();
-                        statusLabel.setText("                      Start Script                      ");
+                        for (int i = 0; i < statusLabel.length; i++) {
+                            statusLabel[i].setText("                      Start Script                      ");
+                        }
                     }
                 }
             }
@@ -211,6 +224,10 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                                add(statusLabel[1]);
+                                timer.stop();       //Stopping previous timer before execution of current script
+                                //tm.setCountdown(2); //Setting time of  Script execution
+                                timer.start();      //Starting timer after script initiation
                             }
                             catch (Exception r){}
                         }
@@ -227,7 +244,9 @@ public class TestFrame extends JFrame {
                         {
                             try
                             {
+                                add(statusLabel[1]);
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+
                             }
                             catch (Exception r){}
                         }
@@ -346,7 +365,7 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener);
-
+                add(statusLabel[1]);
                 this.addKeyListener(listener);
 
             }
@@ -974,10 +993,12 @@ public class TestFrame extends JFrame {
     }
 
     public static void main(String[] args) {
+
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
             public void run() {
                 //JFrame.setDefaultLookAndFeelDecorated(true);
-                new TestFrame();
+                 new TestFrame();
             }
         });
 
@@ -988,6 +1009,7 @@ public class TestFrame extends JFrame {
             robot.keyRelease(KeyEvent.VK_TAB);
         }
         catch (Exception r) {}
+
 
     }
 
