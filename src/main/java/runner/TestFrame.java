@@ -1,4 +1,6 @@
-package toolForRunners;
+//package toolForRunners;
+import runner.TimerTick;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -15,7 +17,7 @@ public class TestFrame extends JFrame {
     //Set quantity of tab Here
     int quantity = 6;
 
-    private JLabel[] statusLabel = new JLabel[quantity];
+    private JLabel[] statusLabel = new JLabel[quantity]; //Creating array of labels
     private Timer timer;
 
     public TestFrame() {
@@ -40,6 +42,13 @@ public class TestFrame extends JFrame {
             statusLabel[i].setLocation(200,200);
         }
 
+        //Adding timer execution
+        final TimerTick tm = new TimerTick();
+        tm.setStatusLabel(statusLabel);
+
+        //Adding Common timer to our tool, by creation an exsemplair of Timer Tick Class
+        final Timer timer = new Timer(1000, tm);
+        tm.setTimer(timer);
         class Template extends JPanel{
 
 
@@ -60,28 +69,24 @@ public class TestFrame extends JFrame {
                 button2.setSize(313, 110);
                 add(button2);
 
+                //Adding status label on First tab
                 add(statusLabel[0]);
 
-                //Adding timer execution
-                final TimerTick tm = new TimerTick();
-                timer = new Timer(1000, tm);
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
                                 add(statusLabel[0]);
                                 timer.stop();        //Stopping previous timer before execution of current script
                                 tm.setCountdown(10); //Setting time of  Script execution
                                 timer.start();       //Starting timer after script initiation
+                            } catch (Exception r) {
                             }
-                            catch (Exception r){}
                         }
                     }
                 });
@@ -91,17 +96,15 @@ public class TestFrame extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
                                 add(statusLabel[0]);
                                 timer.stop();       //Stopping previous timer before execution of current script
                                 tm.setCountdown(2); //Setting time of  Script execution
                                 timer.start();      //Starting timer after script initiation
+                            } catch (Exception r) {
                             }
-                            catch (Exception r){}
                         }
                     }
                 });
@@ -126,33 +129,10 @@ public class TestFrame extends JFrame {
                 this.addKeyListener(listener);
 
             }
-
-            //Class that displays time running down after script is started
-            class TimerTick implements ActionListener {
-
-                int countdown;
-                public void setCountdown(int countdown) {
-                    this.countdown = countdown;
-                }
-
-                public void actionPerformed(ActionEvent e) {
-
-                    countdown--;
-                    for (int i = 0; i < statusLabel.length; i++) {
-
-                        statusLabel[i].setText("                      Wait time " + String.valueOf(countdown) +
-                                "                       " );
-                    }
-
-                    if (countdown == 0) {
-                        timer.stop();
-                        for (int i = 0; i < statusLabel.length; i++) {
-                            statusLabel[i].setText("                      Start Script                      ");
-                        }
-                    }
-                }
-            }
         }
+
+        //Class that displays time running down after script is started
+
 
         class AppDataLogs1 extends JPanel{
             AppDataLogs1 () {
