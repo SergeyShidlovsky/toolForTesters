@@ -1,4 +1,4 @@
-//package toolForRunners;
+package toolForRunners;
 import runner.TimerTick;
 
 import java.awt.*;
@@ -32,7 +32,8 @@ public class TestFrame extends JFrame {
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
 
-        //Adding Status Labels  on each  Tab that is running down time of scripts execution
+        //Adding Status Labels  on each  Tab that is
+        //running down time of scripts execution
         for (int i = 0; i < quantity; i++) {
             statusLabel[i] = new JLabel("                      Start Script                      ");
             statusLabel[i].setFont(labelFont);
@@ -46,11 +47,21 @@ public class TestFrame extends JFrame {
         final TimerTick tm = new TimerTick();
         tm.setStatusLabel(statusLabel);
 
-        //Adding Common timer to our tool, by creation an exsemplair of Timer Tick Class
+        //Adding Common timer to our tool, by creation
+        //an exsemplair of Timer Tick Class
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
+
+        
         class Template extends JPanel{
 
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            private void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
 
             Template () {
 
@@ -82,9 +93,7 @@ public class TestFrame extends JFrame {
                             try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
                                 add(statusLabel[0]);
-                                timer.stop();        //Stopping previous timer before execution of current script
-                                tm.setCountdown(10); //Setting time of  Script execution
-                                timer.start();       //Starting timer after script initiation
+                                timeReset(10); //Set time of Script Execution Here
                             } catch (Exception r) {
                             }
                         }
@@ -103,8 +112,7 @@ public class TestFrame extends JFrame {
                                 timer.stop();       //Stopping previous timer before execution of current script
                                 tm.setCountdown(2); //Setting time of  Script execution
                                 timer.start();      //Starting timer after script initiation
-                            } catch (Exception r) {
-                            }
+                            } catch (Exception r) {}
                         }
                     }
                 });
