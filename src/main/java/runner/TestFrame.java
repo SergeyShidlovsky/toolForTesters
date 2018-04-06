@@ -52,12 +52,12 @@ public class TestFrame extends JFrame {
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        
         class Template extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
-            private void timeReset(int seconds) {
+            public void timeReset(int seconds) {
+
                 timer.stop();             //Stopping previous timer before execution of current script
                 tm.setCountdown(seconds); //Setting time of  Script execution
                 timer.start();            //Starting timer after script initiation
@@ -92,7 +92,6 @@ public class TestFrame extends JFrame {
                         if (ae.getSource() == button1) {
                             try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
-                                add(statusLabel[0]);
                                 timeReset(10); //Set time of Script Execution Here
                             } catch (Exception r) {
                             }
@@ -108,10 +107,7 @@ public class TestFrame extends JFrame {
                         if (ae.getSource() == button2) {
                             try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
-                                add(statusLabel[0]);
-                                timer.stop();       //Stopping previous timer before execution of current script
-                                tm.setCountdown(2); //Setting time of  Script execution
-                                timer.start();      //Starting timer after script initiation
+                                timeReset(2); //Set time of Script Execution Here
                             } catch (Exception r) {}
                         }
                     }
@@ -143,6 +139,16 @@ public class TestFrame extends JFrame {
 
 
         class AppDataLogs1 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
             AppDataLogs1 () {
 
                 //Configure visual settings of Button1
@@ -212,10 +218,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
-                                add(statusLabel[1]);
-                                timer.stop();       //Stopping previous timer before execution of current script
-                                //tm.setCountdown(2); //Setting time of  Script execution
-                                timer.start();      //Starting timer after script initiation
+                                timeReset(5); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -232,9 +235,8 @@ public class TestFrame extends JFrame {
                         {
                             try
                             {
-                                add(statusLabel[1]);
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
-
+                                timeReset(3); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
