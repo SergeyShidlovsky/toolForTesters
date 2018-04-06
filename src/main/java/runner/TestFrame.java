@@ -14,7 +14,7 @@ import javax.swing.*;
 
 public class TestFrame extends JFrame {
 
-    //Set quantity of tab Here
+    //Set quantity of tabs Here
     int quantity = 6;
 
     private JLabel[] statusLabel = new JLabel[quantity]; //Creating array of labels
@@ -57,7 +57,6 @@ public class TestFrame extends JFrame {
             //Adding method for reset timer with new value
             // after buttons below have been pressed
             public void timeReset(int seconds) {
-
                 timer.stop();             //Stopping previous timer before execution of current script
                 tm.setCountdown(seconds); //Setting time of  Script execution
                 timer.start();            //Starting timer after script initiation
@@ -218,7 +217,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
-                                timeReset(5); //Set time of Script Execution Here
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -253,6 +252,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\ClearAppData.bat");
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -269,6 +269,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -285,6 +286,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -301,6 +303,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveAppdata.bat");
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -317,7 +320,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\RestartClearedApp.bat");
-                                // Runtime.getRuntime().exec("C:\\Program Files (x86)\\Corsair\\Corsair Utility Engine\\CUE.exe");
+                                timeReset(1); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -363,6 +366,14 @@ public class TestFrame extends JFrame {
         }
 
         class Link2 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
 
             Link2 () {
                 final JButton button1 = new JButton("  Phabricator [1]   ");
@@ -444,6 +455,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("%APPDATA%\\111\\OpenGit.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -460,6 +472,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilder.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -476,6 +489,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentation.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -492,6 +506,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -508,6 +523,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmware.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -524,6 +540,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -540,6 +557,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -556,6 +574,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -572,6 +591,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiALL.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -588,6 +608,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -634,12 +655,20 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener2);
-
+                add(statusLabel[2]);
                 this.addKeyListener(listener2);
             }
         }
 
         class Execute3 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
 
             Execute3 () {
                 final JButton button1 = new JButton("Device and Printers");
@@ -680,6 +709,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -695,6 +725,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -710,6 +741,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -725,6 +757,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -753,12 +786,20 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener3);
-
+                add(statusLabel[3]);
                 this.addKeyListener(listener3);
             }
         }
 
         class Dumps4 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
 
             Dumps4 () {
                 final JButton button1 = new JButton("GelLastAutoDump [1]");
@@ -800,6 +841,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -816,6 +858,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -832,6 +875,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -848,6 +892,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -876,13 +921,21 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener4);
-
+                add(statusLabel[4]);
                 this.addKeyListener(listener4);
 
             }
         }
 
         class Installation5 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
 
             Installation5 () {
                 final JButton button1 = new JButton("GetInstallLog [1]");
@@ -910,6 +963,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -926,6 +980,7 @@ public class TestFrame extends JFrame {
                             try
                             {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
+                                timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){}
                         }
@@ -949,7 +1004,7 @@ public class TestFrame extends JFrame {
                 };
 
                 button1.addKeyListener(listener5);
-
+                add(statusLabel[5]);
                 this.addKeyListener(listener5);
 
             }
