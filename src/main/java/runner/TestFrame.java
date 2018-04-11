@@ -85,7 +85,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
                         if (ae.getSource() == button1) {
@@ -100,7 +99,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button2
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
                         if (ae.getSource() == button2) {
@@ -209,7 +207,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button1)
@@ -227,7 +224,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button2
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
                         if(ae.getSource() == button2)
@@ -244,7 +240,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button3
                 button3.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
                         if(ae.getSource() == button3)
@@ -261,7 +256,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button4
                 button4.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
                         if(ae.getSource() == button4)
@@ -278,7 +272,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button5
                 button5.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button5 will perform next actions
                         if(ae.getSource() == button5)
@@ -295,7 +288,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button6
                 button6.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button6 will perform next actions
                         if(ae.getSource() == button6)
@@ -312,7 +304,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button7
                 button7.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button7 will perform next actions
                         if(ae.getSource() == button7)
@@ -447,7 +438,6 @@ public class TestFrame extends JFrame {
                 add(button10);
 
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button1)
@@ -464,7 +454,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button2
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
                         if(ae.getSource() == button2)
@@ -481,7 +470,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button3
                 button3.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
                         if(ae.getSource() == button3)
@@ -498,7 +486,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button4
                 button4.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
                         if(ae.getSource() == button4)
@@ -515,7 +502,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button5
                 button5.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button5 will perform next actions
                         if(ae.getSource() == button5)
@@ -532,7 +518,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button6
                 button6.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button6 will perform next actions
                         if(ae.getSource() == button6)
@@ -549,7 +534,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button7
                 button7.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button7 will perform next actions
                         if(ae.getSource() == button7)
@@ -566,7 +550,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button8
                 button8.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button8 will perform next actions
                         if(ae.getSource() == button8)
@@ -583,7 +566,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button9
                 button9.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button9 will perform next actions
                         if(ae.getSource() == button9)
@@ -600,7 +582,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button10
                 button10.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button10 will perform next actions
                         if(ae.getSource() == button10)
@@ -701,7 +682,6 @@ public class TestFrame extends JFrame {
                 add(button4);
 
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button1)
@@ -711,7 +691,8 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                            }
                         }
                     }
                 });
@@ -733,7 +714,6 @@ public class TestFrame extends JFrame {
                 });
 
                 button3.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
                         if(ae.getSource() == button3)
@@ -749,7 +729,6 @@ public class TestFrame extends JFrame {
                 });
 
                 button4.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
                         if(ae.getSource() == button4)
@@ -833,7 +812,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button1)
@@ -850,7 +828,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button2
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
                         if(ae.getSource() == button2)
@@ -867,7 +844,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button3
                 button3.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button3)
@@ -884,7 +860,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button4
                 button4.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button4)
@@ -955,7 +930,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button1
                 button1.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button1)
@@ -972,7 +946,6 @@ public class TestFrame extends JFrame {
 
                 //Add ActionListeners of Button2
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if(ae.getSource() == button2)
