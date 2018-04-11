@@ -15,7 +15,7 @@ import javax.swing.*;
 public class TestFrame extends JFrame {
 
     //Set quantity of tabs Here
-    int quantity = 6;
+    int quantity = 8;
 
     private JLabel[] statusLabel = new JLabel[quantity]; //Creating array of labels
     private Timer timer;
@@ -52,7 +52,7 @@ public class TestFrame extends JFrame {
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        class Template extends JPanel{
+        class Template0 extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -62,7 +62,7 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            Template () {
+            Template0 () {
 
                 //Configure visual settings of Button1
                 final JButton button1 = new JButton("Open Appdata [1]");
@@ -89,9 +89,10 @@ public class TestFrame extends JFrame {
                         //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
                         if (ae.getSource() == button1) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmware.bat");
                                 timeReset(10); //Set time of Script Execution Here
                             } catch (Exception r) {
+                                tm.showException();
                             }
                         }
                     }
@@ -104,8 +105,10 @@ public class TestFrame extends JFrame {
                         if (ae.getSource() == button2) {
                             try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            } catch (Exception r) {}
+                                timeReset(4); //Set time of Script Execution Here
+                            } catch (Exception r) {
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -447,7 +450,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("%APPDATA%\\111\\OpenGit.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+
+                            }
                         }
                     }
                 });
@@ -698,7 +703,6 @@ public class TestFrame extends JFrame {
                 });
 
                 button2.addActionListener(new ActionListener() {
-                    @Override
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
                         if(ae.getSource() == button2)
@@ -955,7 +959,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+
+                            }
                         }
                     }
                 });
@@ -983,7 +989,67 @@ public class TestFrame extends JFrame {
             }
         }
 
-        tabbedPane.addTab("Template",new Template(){
+        class Links6 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Links6() {
+                final JButton button1 = new JButton("GetInstallLog [1]");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+                button1.setSize(313, 110);
+                add(button1);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                KeyListener listener5 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+
+                            //case KeyEvent.VK_2:
+                            //    button2.doClick();
+                            //    break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener5);
+                add(statusLabel[5]);
+                this.addKeyListener(listener5);
+
+            }
+        }
+        
+
+        tabbedPane.addTab("Template",new Template0(){
         });
 
 
@@ -1000,6 +1066,9 @@ public class TestFrame extends JFrame {
         });
 
         tabbedPane.addTab("Installation",new Installation5(){
+        });
+
+        tabbedPane.addTab("Links",new Links6(){
         });
 
         setPreferredSize(new Dimension(485, 215));

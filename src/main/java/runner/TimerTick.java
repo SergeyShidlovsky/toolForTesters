@@ -42,4 +42,13 @@ public class TimerTick implements ActionListener {
             }
         }
     }
+
+    //method for displaying exception of failed script execution on all tabs
+    public void showException() {
+        timer.stop();
+        for (int i = 0; i < statusLabel.length; i++) {
+
+            statusLabel[i].setText("              Script starting failed. Try again             ");
+        }
+    }
 }
