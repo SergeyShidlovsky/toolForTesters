@@ -15,7 +15,7 @@ import javax.swing.*;
 public class TestFrame extends JFrame {
 
     //Set quantity of tabs Here
-    int quantity = 8;
+    int quantity = 9;
 
     private JLabel[] statusLabel = new JLabel[quantity]; //Creating array of labels
     private Timer timer;
@@ -52,7 +52,7 @@ public class TestFrame extends JFrame {
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        class Template0 extends JPanel{
+        class AppDataLogs0 extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -62,7 +62,7 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            Template0 () {
+            AppDataLogs0() {
 
                 //Configure visual settings of Button1
                 final JButton button1 = new JButton("Open Appdata [1]");
@@ -114,7 +114,7 @@ public class TestFrame extends JFrame {
                 });
 
                 //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
-                KeyListener listener = new KeyAdapter() {
+                KeyListener listener0 = new KeyAdapter() {
                     @Override
                     public void keyPressed(KeyEvent e) {
                         switch (e.getKeyCode()) {
@@ -128,9 +128,9 @@ public class TestFrame extends JFrame {
                     }
                 };
 
-                button1.addKeyListener(listener);
+                button1.addKeyListener(listener0);
                 this.add(add(statusLabel[0]));
-                this.addKeyListener(listener);
+                this.addKeyListener(listener0);
 
             }
         }
@@ -138,7 +138,7 @@ public class TestFrame extends JFrame {
         //Class that displays time running down after script is started
 
 
-        class AppDataLogs1 extends JPanel{
+        class Application1 extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -149,7 +149,7 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            AppDataLogs1 () {
+            Application1() {
 
                 //Configure visual settings of Button1
                 final JButton button1 = new JButton("Open Appdata [1]");
@@ -359,7 +359,8 @@ public class TestFrame extends JFrame {
 
         }
 
-        class Link2 extends JPanel{
+
+        class Dumps2 extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -369,7 +370,352 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            Link2 () {
+            Dumps2() {
+                final JButton button1 = new JButton("GelLastAutoDump [1]");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Select last autodump Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
+                button1.setSize(313, 110);
+                add(button1);
+
+                final JButton button2 = new JButton("GetLastManualDump [2]");
+                button2.setFont(font);
+                button2.setVisible(true);
+                button2.setToolTipText("Select last MANUALLY CREATED Dump and Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
+                button2.setSize(313, 110);
+                add(button2);
+
+                final JButton button3 = new JButton("GetLastMemoryDump [3]");
+                button3.setFont(font);
+                button3.setVisible(true);
+                button3.setToolTipText("Copy to desktop and FTP MEMORY Dump after BSOD or other issues");
+                button3.setSize(313, 110);
+                add(button3);
+
+                final JButton button4 = new JButton("OpenTaskManager [4]");
+                button4.setFont(font);
+                button4.setVisible(true);
+                button4.setToolTipText("Open SysWOW64 task manager for Manual Dump creation");
+                button4.setSize(313, 110);
+                add(button4);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add ActionListeners of Button2
+                button2.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button2 will perform next actions
+                        if(ae.getSource() == button2)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add ActionListeners of Button3
+                button3.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button3)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add ActionListeners of Button4
+                button4.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button4)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add KeyListener for Buttons press emulation by pressing Num1 button
+                KeyListener listener2 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+                            case KeyEvent.VK_2:
+                                button2.doClick();
+                                break;
+                            case KeyEvent.VK_3:
+                                button3.doClick();
+                                break;
+                            case KeyEvent.VK_4:
+                                button4.doClick();
+                                break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener2);
+                add(statusLabel[2]);
+                this.addKeyListener(listener2);
+
+            }
+        }
+
+
+        class Execute3 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Execute3 () {
+                final JButton button1 = new JButton("Device and Printers");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Open Device and Printers");
+                button1.setSize(313, 110);
+                add(button1);
+
+                final JButton button2 = new JButton("Device Manager");
+                button2.setFont(font);
+                button2.setVisible(true);
+                button2.setToolTipText("Open Device manger");
+                button2.setSize(313, 110);
+                add(button2);
+
+                final JButton button3 = new JButton(" Application wizard ");
+                button3.setFont(font);
+                button3.setVisible(true);
+                button3.setToolTipText("Open Application wizard");
+                button3.setSize(313, 110);
+                add(button3);
+
+                final JButton button4 = new JButton(" Registry Editor");
+                button4.setFont(font);
+                button4.setVisible(true);
+                button4.setToolTipText("Open Registry Editor");
+                button4.setSize(313, 110);
+                add(button4);
+
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){
+                            }
+                        }
+                    }
+                });
+
+                button2.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button2 will perform next actions
+                        if(ae.getSource() == button2)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                button3.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button3 will perform next actions
+                        if(ae.getSource() == button3)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                button4.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button4 will perform next actions
+                        if(ae.getSource() == button4)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                KeyListener listener3 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+                            case KeyEvent.VK_2:
+                                button2.doClick();
+                                break;
+                            case KeyEvent.VK_3:
+                                button3.doClick();
+                                break;
+                            case KeyEvent.VK_4:
+                                button4.doClick();
+                                break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener3);
+                add(statusLabel[3]);
+                this.addKeyListener(listener3);
+            }
+        }
+
+
+        class Installation4 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Installation4() {
+                final JButton button1 = new JButton("GetInstallLog [1]");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+                button1.setSize(313, 110);
+                add(button1);
+
+                final JButton button2 = new JButton("GetOEMFiles [2]");
+                button2.setFont(font);
+                button2.setVisible(true);
+                button2.setToolTipText("Copy  OEM files to Desktop");
+                button2.setSize(313, 110);
+                add(button2);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+                //Add ActionListeners of Button2
+                button2.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button2)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){
+
+                            }
+                        }
+                    }
+                });
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                KeyListener listener4 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+
+                            case KeyEvent.VK_2:
+                                button2.doClick();
+                                break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener4);
+                add(statusLabel[4]);
+                this.addKeyListener(listener4);
+
+            }
+        }
+
+        class Links5 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Links5() {
                 final JButton button1 = new JButton("  Phabricator [1]   ");
                 button1.setFont(font);
                 button1.setVisible(true);
@@ -602,7 +948,7 @@ public class TestFrame extends JFrame {
                 });
 
                 //Add KeyListener for Button1 press emulation by pressing Num1 button
-                KeyListener listener2 = new KeyAdapter() {
+                KeyListener listener5 = new KeyAdapter() {
                     @Override
                     public void keyPressed(KeyEvent e) {
                         switch (e.getKeyCode()) {
@@ -640,356 +986,14 @@ public class TestFrame extends JFrame {
                     }
                 };
 
-                button1.addKeyListener(listener2);
-                add(statusLabel[2]);
-                this.addKeyListener(listener2);
-            }
-        }
-
-        class Execute3 extends JPanel{
-
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-
-            Execute3 () {
-                final JButton button1 = new JButton("Device and Printers");
-
-                button1.setFont(font);
-                button1.setVisible(true);
-                button1.setToolTipText("Open Device and Printers");
-                button1.setSize(313, 110);
-                add(button1);
-
-                final JButton button2 = new JButton("Device Manager");
-                button2.setFont(font);
-                button2.setVisible(true);
-                button2.setToolTipText("Open Device manger");
-                button2.setSize(313, 110);
-                add(button2);
-
-                final JButton button3 = new JButton(" Application wizard ");
-                button3.setFont(font);
-                button3.setVisible(true);
-                button3.setToolTipText("Open Application wizard");
-                button3.setSize(313, 110);
-                add(button3);
-
-                final JButton button4 = new JButton(" Registry Editor");
-                button4.setFont(font);
-                button4.setVisible(true);
-                button4.setToolTipText("Open Registry Editor");
-                button4.setSize(313, 110);
-                add(button4);
-
-                button1.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
-                            }
-                        }
-                    }
-                });
-
-                button2.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                button3.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button3 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                button4.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button4 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add KeyListener for Button1 press emulation by pressing Num1 button
-                KeyListener listener3 = new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        switch (e.getKeyCode()) {
-                            case KeyEvent.VK_1:
-                                button1.doClick();
-                                break;
-                            case KeyEvent.VK_2:
-                                button2.doClick();
-                                break;
-                            case KeyEvent.VK_3:
-                                button3.doClick();
-                                break;
-                            case KeyEvent.VK_4:
-                                button4.doClick();
-                                break;
-                        }
-                    }
-                };
-
-                button1.addKeyListener(listener3);
-                add(statusLabel[3]);
-                this.addKeyListener(listener3);
-            }
-        }
-
-        class Dumps4 extends JPanel{
-
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-
-            Dumps4 () {
-                final JButton button1 = new JButton("GelLastAutoDump [1]");
-
-                button1.setFont(font);
-                button1.setVisible(true);
-                button1.setToolTipText("Select last autodump Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
-                button1.setSize(313, 110);
-                add(button1);
-
-                final JButton button2 = new JButton("GetLastManualDump [2]");
-                button2.setFont(font);
-                button2.setVisible(true);
-                button2.setToolTipText("Select last MANUALLY CREATED Dump and Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
-                button2.setSize(313, 110);
-                add(button2);
-
-                final JButton button3 = new JButton("GetLastMemoryDump [3]");
-                button3.setFont(font);
-                button3.setVisible(true);
-                button3.setToolTipText("Copy to desktop and FTP MEMORY Dump after BSOD or other issues");
-                button3.setSize(313, 110);
-                add(button3);
-
-                final JButton button4 = new JButton("OpenTaskManager [4]");
-                button4.setFont(font);
-                button4.setVisible(true);
-                button4.setToolTipText("Open SysWOW64 task manager for Manual Dump creation");
-                button4.setSize(313, 110);
-                add(button4);
-
-                //Add ActionListeners of Button1
-                button1.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add ActionListeners of Button2
-                button2.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add ActionListeners of Button3
-                button3.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add ActionListeners of Button4
-                button4.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add KeyListener for Buttons press emulation by pressing Num1 button
-                KeyListener listener4 = new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        switch (e.getKeyCode()) {
-                            case KeyEvent.VK_1:
-                                button1.doClick();
-                                break;
-                            case KeyEvent.VK_2:
-                                button2.doClick();
-                                break;
-                            case KeyEvent.VK_3:
-                                button3.doClick();
-                                break;
-                            case KeyEvent.VK_4:
-                                button4.doClick();
-                                break;
-                        }
-                    }
-                };
-
-                button1.addKeyListener(listener4);
-                add(statusLabel[4]);
-                this.addKeyListener(listener4);
-
-            }
-        }
-
-        class Installation5 extends JPanel{
-
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-
-            Installation5 () {
-                final JButton button1 = new JButton("GetInstallLog [1]");
-
-                button1.setFont(font);
-                button1.setVisible(true);
-                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
-                button1.setSize(313, 110);
-                add(button1);
-
-                final JButton button2 = new JButton("GetOEMFiles [2]");
-                button2.setFont(font);
-                button2.setVisible(true);
-                button2.setToolTipText("Copy  OEM files to Desktop");
-                button2.setSize(313, 110);
-                add(button2);
-
-                //Add ActionListeners of Button1
-                button1.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){}
-                        }
-                    }
-                });
-
-                //Add ActionListeners of Button2
-                button2.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
-
-                            }
-                        }
-                    }
-                });
-
-                //Add KeyListener for Button1 press emulation by pressing Num1 button
-                KeyListener listener5 = new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        switch (e.getKeyCode()) {
-                            case KeyEvent.VK_1:
-                                button1.doClick();
-                                break;
-
-                            case KeyEvent.VK_2:
-                                button2.doClick();
-                                break;
-                        }
-                    }
-                };
-
                 button1.addKeyListener(listener5);
                 add(statusLabel[5]);
                 this.addKeyListener(listener5);
-
             }
         }
 
-        class Links6 extends JPanel{
+
+        class Network6 extends JPanel{
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -999,7 +1003,7 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            Links6() {
+            Network6() {
                 final JButton button1 = new JButton("GetInstallLog [1]");
 
                 button1.setFont(font);
@@ -1026,7 +1030,7 @@ public class TestFrame extends JFrame {
 
 
                 //Add KeyListener for Button1 press emulation by pressing Num1 button
-                KeyListener listener5 = new KeyAdapter() {
+                KeyListener listener6 = new KeyAdapter() {
                     @Override
                     public void keyPressed(KeyEvent e) {
                         switch (e.getKeyCode()) {
@@ -1041,37 +1045,161 @@ public class TestFrame extends JFrame {
                     }
                 };
 
-                button1.addKeyListener(listener5);
-                add(statusLabel[5]);
-                this.addKeyListener(listener5);
+                button1.addKeyListener(listener6);
+                add(statusLabel[6]);
+                this.addKeyListener(listener6);
 
             }
         }
-        
 
-        tabbedPane.addTab("Template",new Template0(){
+        class Registry7 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Registry7() {
+                final JButton button1 = new JButton("GetInstallLog [1]");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+                button1.setSize(313, 110);
+                add(button1);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                KeyListener listener7 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+
+                            //case KeyEvent.VK_2:
+                            //    button2.doClick();
+                            //    break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener7);
+                add(statusLabel[7]);
+                this.addKeyListener(listener7);
+
+            }
+        }
+
+        class Services8 extends JPanel{
+
+            //Adding method for reset timer with new value
+            // after buttons below have been pressed
+            public void timeReset(int seconds) {
+                timer.stop();             //Stopping previous timer before execution of current script
+                tm.setCountdown(seconds); //Setting time of  Script execution
+                timer.start();            //Starting timer after script initiation
+            }
+
+            Services8() {
+                final JButton button1 = new JButton("GetInstallLog [1]");
+
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+                button1.setSize(313, 110);
+                add(button1);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        if(ae.getSource() == button1)
+                        {
+                            try
+                            {
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                                timeReset(2); //Set time of Script Execution Here
+                            }
+                            catch (Exception r){}
+                        }
+                    }
+                });
+
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                KeyListener listener8 = new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_1:
+                                button1.doClick();
+                                break;
+
+                            //case KeyEvent.VK_2:
+                            //    button2.doClick();
+                            //    break;
+                        }
+                    }
+                };
+
+                button1.addKeyListener(listener8);
+                add(statusLabel[8]);
+                this.addKeyListener(listener8);
+
+            }
+        }
+
+        tabbedPane.addTab("AppDataLogs",new AppDataLogs0(){
         });
 
-
-        tabbedPane.addTab("AppData&Logs",new AppDataLogs1(){
+        tabbedPane.addTab("Application",new Application1(){
         });
 
-        tabbedPane.addTab("Links",new Link2() { //REFACTOR COMPONENT TO NESTED CLASS LINKS
+        tabbedPane.addTab("Dumps",new Dumps2(){
         });
 
         tabbedPane.addTab("Execute",new Execute3(){
         });
 
-        tabbedPane.addTab("Dumps",new Dumps4(){
+        tabbedPane.addTab("Installation",new Installation4(){
         });
 
-        tabbedPane.addTab("Installation",new Installation5(){
+        tabbedPane.addTab("Links",new Links5(){
         });
 
-        tabbedPane.addTab("Links",new Links6(){
+        tabbedPane.addTab("Network",new Network6(){
         });
 
-        setPreferredSize(new Dimension(485, 215));
+        tabbedPane.addTab("Registry",new Registry7(){
+        });
+
+        tabbedPane.addTab("Services",new Services8(){
+        });
+
+
+
+        setPreferredSize(new Dimension(645, 215));
         pack();
         setLocationRelativeTo(null);
         setResizable(false);

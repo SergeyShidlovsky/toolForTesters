@@ -7,19 +7,16 @@ import java.awt.event.ActionListener;
 public class TimerTick implements ActionListener {
 
     int countdown;           //Value of time of script;s execution
-    Timer timer;             //
-    JLabel statusLabel[];
+    Timer timer;             //Created object of "Timer" type
+    JLabel statusLabel[];    //Created array of Labels
 
     public void setStatusLabel(JLabel[] statusLabel) {
         this.statusLabel = statusLabel;
     }
 
-
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
-
-
 
     public void setCountdown(int countdown) {
         this.countdown = countdown;
@@ -31,14 +28,14 @@ public class TimerTick implements ActionListener {
         countdown--;
         for (int i = 0; i < statusLabel.length; i++) {
 
-            statusLabel[i].setText("                      Wait time " + String.valueOf(countdown) +
-                    "                       ");
+            statusLabel[i].setText("                           Wait time " + String.valueOf(countdown) +
+                    "                            ");
         }
 
         if (countdown == 0) {
             timer.stop();
             for (int i = 0; i < statusLabel.length; i++) {
-                statusLabel[i].setText("                      Start Script                      ");
+                statusLabel[i].setText("                                Start Script                                ");
             }
         }
     }
@@ -47,8 +44,7 @@ public class TimerTick implements ActionListener {
     public void showException() {
         timer.stop();
         for (int i = 0; i < statusLabel.length; i++) {
-
-            statusLabel[i].setText("              Script starting failed. Try again             ");
+            statusLabel[i].setText("                   Script starting failed. Try again                  ");
         }
     }
 }
