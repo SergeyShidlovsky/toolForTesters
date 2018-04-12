@@ -219,7 +219,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                         // СМОТРИ СЮДА http://forum.sources.ru/index.php?showtopic=133192&view=showall
                     }
@@ -236,7 +238,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
                                 timeReset(3); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -252,7 +256,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\ClearAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -268,7 +274,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -284,7 +292,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -300,7 +310,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveAppdata.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -316,7 +328,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\RestartClearedApp.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -411,7 +425,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -427,7 +443,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -443,7 +461,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -459,7 +479,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -544,6 +566,7 @@ public class TestFrame extends JFrame {
                                 timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){
+                                tm.showException();
                             }
                         }
                     }
@@ -559,7 +582,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -574,7 +599,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -589,7 +616,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -659,7 +688,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -676,7 +707,7 @@ public class TestFrame extends JFrame {
                                 timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){
-
+                                tm.showException();
                             }
                         }
                     }
@@ -797,7 +828,7 @@ public class TestFrame extends JFrame {
                                 timeReset(2); //Set time of Script Execution Here
                             }
                             catch (Exception r){
-
+                                tm.showException();
                             }
                         }
                     }
@@ -814,7 +845,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilder.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -830,7 +863,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentation.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -846,7 +881,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -862,7 +899,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmware.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -878,7 +917,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -894,7 +935,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -910,7 +953,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -926,7 +971,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiALL.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -942,7 +989,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -1023,7 +1072,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -1082,7 +1133,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
@@ -1141,7 +1194,9 @@ public class TestFrame extends JFrame {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             }
-                            catch (Exception r){}
+                            catch (Exception r){
+                                tm.showException();
+                            }
                         }
                     }
                 });
