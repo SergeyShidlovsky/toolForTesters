@@ -28,8 +28,8 @@ public class TimerTick implements ActionListener {
         countdown--;
         for (int i = 0; i < statusLabel.length; i++) {
 
-            statusLabel[i].setText("                           Wait time " + String.valueOf(countdown) +
-                    "                            ");
+            statusLabel[i].setText("                                Wait time " + String.valueOf(countdown) +
+                    "                                ");
         }
 
         if (countdown == 0) {
