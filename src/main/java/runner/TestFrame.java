@@ -48,7 +48,7 @@ public class TestFrame extends JFrame {
         tm.setStatusLabel(statusLabel);
 
         //Adding Common timer to our tool, by creation
-        //an exsemplair of Timer Tick Class
+        //an object of Timer Tick Class
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
