@@ -742,7 +742,7 @@ public class TestFrame extends JFrame {
             // after buttons below have been pressed
             public void timeReset(int seconds) {
                 timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
+                tm.setCountdown(seconds); //Setting time of  Script executionnn
                 timer.start();            //Starting timer after script initiation
             }
 
