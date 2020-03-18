@@ -2,9 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1190c9f7-e979-4a8c-83ba-abba28a8e77b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/toolForTesters.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/toolForRunners_jar/toolForRunners.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/changelog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/runner/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/runner/TestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/runner/TimerTick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1AppDataLogs0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1AppDataLogs0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1AppDataLogs0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1AppDataLogs0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Application1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Dumps2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Execute3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Installation4$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Installation4$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Installation4$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Installation4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Links5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Network6$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Network6$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Network6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Registry7$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Registry7$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Registry7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Services8$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Services8$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$1Services8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolForRunners/TestFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/css/maven-base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/css/maven-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/css/print.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/css/site.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependency-convergence.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependency-info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/collapsed.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/expanded.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/external.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/icon_error_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/icon_info_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/icon_success_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/icon_warning_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/logos/maven-feather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/images/newwindow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugin-management.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugins.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/toolForRunners-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/toolForRunners.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +112,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ZJDUiAwlV34rQ7tQPqSL4K7dPR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,6 +124,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -39,13 +142,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="757" y="283" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584551067272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="283" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584551067272" />
+    <state x="757" y="247" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584553900904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="247" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584553900904" />
     <state x="739" y="262" key="FileChooserDialogImpl" timestamp="1584548351398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584548351398" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584548442003">
+    <state width="1339" height="266" key="GridCell.Tab.0.bottom" timestamp="1584554139347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584548442003" />
+    <state width="1339" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584554139347" />
+    <state width="1339" height="266" key="GridCell.Tab.0.center" timestamp="1584554139347">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1339" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584554139347" />
+    <state width="1339" height="266" key="GridCell.Tab.0.left" timestamp="1584554139345">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1339" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584554139345" />
+    <state width="1339" height="266" key="GridCell.Tab.0.right" timestamp="1584554139347">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1339" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584554139347" />
+    <state x="507" y="74" key="SettingsEditor" timestamp="1584551071755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="507" y="74" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584551071755" />
+    <state x="846" y="204" key="VCS.ChangeListViewerDialog" timestamp="1584553584745">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="846" y="204" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584553584745" />
+    <state x="619" y="233" key="Vcs.Push.Dialog.v2" timestamp="1584550292123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="233" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584550292123" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584552801498">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584552801498" />
+    <state x="836" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584554479573">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="836" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584554479573" />
   </component>
 </project>
