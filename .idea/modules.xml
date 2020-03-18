@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/toolForRunners.iml" filepath="$PROJECT_DIR$/toolForRunners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/toolForTesters.iml" filepath="$PROJECT_DIR$/.idea/toolForTesters.iml" />
     </modules>
   </component>
 </project>
