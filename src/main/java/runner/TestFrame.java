@@ -10,8 +10,6 @@ import javax.swing.*;
  * Created by Sergey on 13.06.17.
  */
 
-//See changelog.txt for qny questions
-
 public class TestFrame extends JFrame {
 
     //Set quantity of tabs Here
