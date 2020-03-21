@@ -1,5 +1,4 @@
-package toolForRunners;
-import runner.TimerTick;
+package runner;
 
 import java.awt.*;
 import java.awt.event.*;
