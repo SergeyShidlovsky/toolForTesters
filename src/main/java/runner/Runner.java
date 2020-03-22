@@ -20,8 +20,7 @@ public class Runner {
             robot.delay(500);
             robot.keyPress(KeyEvent.VK_TAB);
             robot.keyRelease(KeyEvent.VK_TAB);
+        } catch (Exception r) {
         }
-        catch (Exception r) {}
-
     }
 }
