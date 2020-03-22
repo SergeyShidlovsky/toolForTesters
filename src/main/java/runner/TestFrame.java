@@ -35,9 +35,9 @@ public class TestFrame extends JFrame {
             statusLabel[i] = new JLabel("                      Start Script                      ");
             statusLabel[i].setFont(labelFont);
             statusLabel[i].setVisible(true);
-            statusLabel[i].setSize(313,110);
+            statusLabel[i].setSize(313, 110);
             statusLabel[i].setHorizontalAlignment(2);
-            statusLabel[i].setLocation(200,200);
+            statusLabel[i].setLocation(200, 200);
         }
 
         //Adding timer execution
@@ -49,7 +49,7 @@ public class TestFrame extends JFrame {
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        class AppDataLogs0 extends JPanel{
+        class AppDataLogs0 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -135,7 +135,7 @@ public class TestFrame extends JFrame {
         //Class that displays time running down after script is started
 
 
-        class Application1 extends JPanel{
+        class Application1 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -209,14 +209,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -228,14 +225,11 @@ public class TestFrame extends JFrame {
                 button2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
                                 timeReset(3); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -246,14 +240,11 @@ public class TestFrame extends JFrame {
                 button3.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button3) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\ClearAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -264,14 +255,11 @@ public class TestFrame extends JFrame {
                 button4.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button4) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -282,14 +270,11 @@ public class TestFrame extends JFrame {
                 button5.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button5 will perform next actions
-                        if(ae.getSource() == button5)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button5) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -300,14 +285,11 @@ public class TestFrame extends JFrame {
                 button6.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button6 will perform next actions
-                        if(ae.getSource() == button6)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button6) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveAppdata.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -318,14 +300,11 @@ public class TestFrame extends JFrame {
                 button7.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button7 will perform next actions
-                        if(ae.getSource() == button7)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button7) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\RestartClearedApp.bat");
                                 timeReset(1); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -371,7 +350,7 @@ public class TestFrame extends JFrame {
         }
 
 
-        class Dumps2 extends JPanel{
+        class Dumps2 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -415,14 +394,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -433,14 +409,11 @@ public class TestFrame extends JFrame {
                 button2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -451,14 +424,11 @@ public class TestFrame extends JFrame {
                 button3.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button3) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -469,14 +439,11 @@ public class TestFrame extends JFrame {
                 button4.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button4) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -512,7 +479,7 @@ public class TestFrame extends JFrame {
         }
 
 
-        class Execute3 extends JPanel{
+        class Execute3 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -522,7 +489,7 @@ public class TestFrame extends JFrame {
                 timer.start();            //Starting timer after script initiation
             }
 
-            Execute3 () {
+            Execute3() {
                 final JButton button1 = new JButton("Device and Printers");
 
                 button1.setFont(font);
@@ -555,14 +522,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -572,14 +536,11 @@ public class TestFrame extends JFrame {
                 button2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -589,14 +550,11 @@ public class TestFrame extends JFrame {
                 button3.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button3) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -606,14 +564,11 @@ public class TestFrame extends JFrame {
                 button4.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button4) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -648,7 +603,7 @@ public class TestFrame extends JFrame {
         }
 
 
-        class Installation4 extends JPanel{
+        class Installation4 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -678,14 +633,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -696,14 +648,11 @@ public class TestFrame extends JFrame {
                 button2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -733,7 +682,7 @@ public class TestFrame extends JFrame {
             }
         }
 
-        class Links5 extends JPanel{
+        class Links5 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -817,14 +766,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("%APPDATA%\\111\\OpenGit.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -835,14 +781,11 @@ public class TestFrame extends JFrame {
                 button2.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button2 will perform next actions
-                        if(ae.getSource() == button2)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button2) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilder.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -853,14 +796,11 @@ public class TestFrame extends JFrame {
                 button3.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button3 will perform next actions
-                        if(ae.getSource() == button3)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button3) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentation.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -871,14 +811,11 @@ public class TestFrame extends JFrame {
                 button4.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button4 will perform next actions
-                        if(ae.getSource() == button4)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button4) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -889,14 +826,11 @@ public class TestFrame extends JFrame {
                 button5.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button5 will perform next actions
-                        if(ae.getSource() == button5)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button5) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmware.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -907,14 +841,11 @@ public class TestFrame extends JFrame {
                 button6.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button6 will perform next actions
-                        if(ae.getSource() == button6)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button6) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -925,14 +856,11 @@ public class TestFrame extends JFrame {
                 button7.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button7 will perform next actions
-                        if(ae.getSource() == button7)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button7) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -943,14 +871,11 @@ public class TestFrame extends JFrame {
                 button8.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button8 will perform next actions
-                        if(ae.getSource() == button8)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button8) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -961,14 +886,11 @@ public class TestFrame extends JFrame {
                 button9.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button9 will perform next actions
-                        if(ae.getSource() == button9)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button9) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiALL.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -979,14 +901,11 @@ public class TestFrame extends JFrame {
                 button10.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button10 will perform next actions
-                        if(ae.getSource() == button10)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button10) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -1039,7 +958,7 @@ public class TestFrame extends JFrame {
         }
 
 
-        class Network6 extends JPanel{
+        class Network6 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -1062,14 +981,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -1100,7 +1016,7 @@ public class TestFrame extends JFrame {
             }
         }
 
-        class Registry7 extends JPanel{
+        class Registry7 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -1123,14 +1039,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -1161,7 +1074,7 @@ public class TestFrame extends JFrame {
             }
         }
 
-        class Services8 extends JPanel{
+        class Services8 extends JPanel {
 
             //Adding method for reset timer with new value
             // after buttons below have been pressed
@@ -1184,14 +1097,11 @@ public class TestFrame extends JFrame {
                 button1.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
-                        if(ae.getSource() == button1)
-                        {
-                            try
-                            {
+                        if (ae.getSource() == button1) {
+                            try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
-                            }
-                            catch (Exception r){
+                            } catch (Exception r) {
                                 tm.showException();
                             }
                         }
@@ -1222,31 +1132,34 @@ public class TestFrame extends JFrame {
             }
         }
 
-        tabbedPane.addTab("AppDataLogs",new AppDataLogs0(){
+        tabbedPane.addTab("AppDataLogs", new AppDataLogs0() {
         });
 
-        tabbedPane.addTab("Application",new Application1(){
+        tabbedPane.addTab("Application", new Application1() {
         });
 
-        tabbedPane.addTab("Dumps",new Dumps2(){
+        tabbedPane.addTab("Dumps", new Dumps2() {
         });
 
-        tabbedPane.addTab("Execute",new Execute3(){
+        tabbedPane.addTab("Execute", new Execute3() {
         });
 
-        tabbedPane.addTab("Installation",new Installation4(){
+        tabbedPane.addTab("Installation", new Installation4() {
         });
 
-        tabbedPane.addTab("Links",new Links5(){
+        tabbedPane.addTab("Links", new Links5() {
         });
 
-        tabbedPane.addTab("Network",new Network6(){
+        tabbedPane.addTab("Network", new Network6() {
         });
 
-        tabbedPane.addTab("Registry",new Registry7(){
+        tabbedPane.addTab("Registry", new Registry7() {
         });
 
-        tabbedPane.addTab("Services",new Services8(){
+        tabbedPane.addTab("Services", new Services8() {
+        });
+
+        tabbedPane.addTab("Test title", new Ser(timer, tm, font, statusLabel) {
         });
 
         setPreferredSize(new Dimension(645, 215));
