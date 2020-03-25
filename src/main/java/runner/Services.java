@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Ser extends JPanel {
+public class Services extends JPanel {
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -14,7 +14,7 @@ public class Ser extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
-    Ser(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         final JButton button1 = new JButton("GetInstallLog [1]");
 
@@ -30,15 +30,14 @@ public class Ser extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\GetInstallLog.bat");
-                        timeReset(6, timer, tm); //Set time of Script Execution Here
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
                     }
                 }
             }
         });
-
 
         //Add KeyListener for Button1 press emulation by pressing Num1 button
         KeyListener listener8 = new KeyAdapter() {
