@@ -1,4 +1,6 @@
-package runner;
+package runner.tabs;
+
+import runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +16,7 @@ public class Services extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
-    Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         final JButton button1 = new JButton("Open Services [1]");
         button1.setFont(font);
