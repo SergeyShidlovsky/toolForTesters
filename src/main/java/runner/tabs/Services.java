@@ -16,7 +16,7 @@ public class Services extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
-    Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         final JButton button1 = new JButton("GetInstallLog [1]");
 
