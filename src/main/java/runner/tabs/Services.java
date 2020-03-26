@@ -1,4 +1,6 @@
-package runner;
+package runner.tabs;
+
+import runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
