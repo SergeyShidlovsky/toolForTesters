@@ -1,5 +1,6 @@
 package runner;
 
+import runner.tabs.Network;
 import runner.tabs.Registry;
 import runner.tabs.Services;
 
@@ -960,65 +961,6 @@ public class TestFrame extends JFrame {
             }
         }
 
-
-        class Network6 extends JPanel {
-
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-
-            Network6() {
-                final JButton button1 = new JButton("GetInstallLog [1]");
-
-                button1.setFont(font);
-                button1.setVisible(true);
-                button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
-                button1.setSize(313, 110);
-                add(button1);
-
-                //Add ActionListeners of Button1
-                button1.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next actions
-                        if (ae.getSource() == button1) {
-                            try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
-                                timeReset(2); //Set time of Script Execution Here
-                            } catch (Exception r) {
-                                tm.showException();
-                            }
-                        }
-                    }
-                });
-
-
-                //Add KeyListener for Button1 press emulation by pressing Num1 button
-                KeyListener listener6 = new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        switch (e.getKeyCode()) {
-                            case KeyEvent.VK_1:
-                                button1.doClick();
-                                break;
-
-                            //case KeyEvent.VK_2:
-                            //    button2.doClick();
-                            //    break;
-                        }
-                    }
-                };
-
-                button1.addKeyListener(listener6);
-                add(statusLabel[6]);
-                this.addKeyListener(listener6);
-
-            }
-        }
-
         tabbedPane.addTab("AppDataLogs", new AppDataLogs0() {
         });
 
@@ -1037,7 +979,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("Links", new Links5() {
         });
 
-        tabbedPane.addTab("Network", new Network6() {
+        tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabel) {
         });
 
         tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabel) {
