@@ -18,21 +18,63 @@ public class Registry extends JPanel {
 
     public Registry(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("GetInstallLog [1]");
-
+        final JButton button1 = new JButton("OpenRegistryEditor [1]");
         button1.setFont(font);
         button1.setVisible(true);
-        button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+        button1.setToolTipText("Opens Registry Editor");
         button1.setSize(313, 110);
         add(button1);
 
+        final JButton button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
+        button2.setFont(font);
+        button2.setVisible(true);
+        button2.setToolTipText("Open Registry Editor Clink PIDs");
+        button2.setSize(313, 110);
+        add(button2);
+
+        final JButton button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
+        button3.setFont(font);
+        button3.setVisible(true);
+        button3.setToolTipText("Open Registry Editor Error Reporting");
+        button3.setSize(313, 110);
+        add(button3);
         //Add ActionListeners of Button1
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditor.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+
+        //Add ActionListeners of Button2
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button1) {
+                    try {
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditorClinkPIDs.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+
+        //Add ActionListeners of Button2
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button1) {
+                    try {
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditorErrorReporting.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -49,15 +91,19 @@ public class Registry extends JPanel {
                     case KeyEvent.VK_1:
                         button1.doClick();
                         break;
-
-                    //case KeyEvent.VK_2:
-                    //    button2.doClick();
-                    //    break;
+                    case KeyEvent.VK_2:
+                        button2.doClick();
+                        break;
+                    case KeyEvent.VK_3:
+                        button3.doClick();
+                        break;
                 }
             }
         };
 
         button1.addKeyListener(listener7);
+        button2.addKeyListener(listener7);
+        button3.addKeyListener(listener7);
         add(statusLabel[7]);
         this.addKeyListener(listener7);
 
