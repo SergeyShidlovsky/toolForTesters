@@ -18,82 +18,97 @@ public class Links extends JPanel {
     }
 
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
-        final JButton button1 = new JButton("Phabricator [1]");
+        final JButton button1 = new JButton("Firmware [1]");
         button1.setFont(font);
         button1.setVisible(true);
-        button1.setToolTipText("Open https://git.devx.dp.ua");
+        button1.setToolTipText("Open page with FW images");
         button1.setSize(313, 110);
         add(button1);
 
         final JButton button2 = new JButton("Builder [2]");
         button2.setFont(font);
         button2.setVisible(true);
-        button2.setToolTipText("Open Builder");
+        button2.setToolTipText("Open page with builder");
         button2.setSize(313, 110);
         add(button2);
 
-        final JButton button3 = new JButton("Documentation [3]");
+        final JButton button3 = new JButton("Builds [3]");
         button3.setFont(font);
         button3.setVisible(true);
-        button3.setToolTipText("Open Documentation folder on FS ");
+        button3.setToolTipText("Open page with builds ");
         button3.setSize(313, 110);
         add(button3);
 
-        final JButton button4 = new JButton("Builds [4]");
+        final JButton button4 = new JButton("DeviceDoc [4]");
         button4.setFont(font);
         button4.setVisible(true);
-        button4.setToolTipText("Open Builds ");
+        button4.setToolTipText("Open device documents page");
         button4.setSize(313, 110);
         add(button4);
 
-        final JButton button5 = new JButton(" Firmware [5] ");
+        final JButton button5 = new JButton(" DocumentationCUE 2.0 [5] ");
         button5.setFont(font);
         button5.setVisible(true);
-        button5.setToolTipText("Open storage with Corsair Firmware");
+        button5.setToolTipText("Open CUE 2.0 documentation page");
         button5.setSize(313, 110);
         add(button5);
 
-        final JButton button6 = new JButton("Report [6]");
+        final JButton button6 = new JButton("DocumentationCUE 3.0 [6]");
         button6.setFont(font);
         button6.setVisible(true);
-        button6.setToolTipText("Open GoogleDoc with Reports and Tasks");
+        button6.setToolTipText("Open CUE 3.0 documentation page");
         button6.setSize(313, 110);
         add(button6);
 
-        final JButton button7 = new JButton(" PMArea [7] ");
+        final JButton button7 = new JButton(" Phabricator [7] ");
         button7.setFont(font);
         button7.setVisible(true);
-        button7.setToolTipText("Open PMAreya");
+        button7.setToolTipText("Open Phabricator page");
         button7.setSize(313, 110);
         add(button7);
 
-        final JButton button8 = new JButton("Squash [8]");
+        final JButton button8 = new JButton("PMArea [8]");
         button8.setFont(font);
         button8.setVisible(true);
-        button8.setToolTipText("Open Squash");
+        button8.setToolTipText("Open PMArea");
         button8.setSize(313, 110);
         add(button8);
 
-        final JButton button9 = new JButton(" Wiki All [9] ");
+        final JButton button9 = new JButton(" Report [9] ");
         button9.setFont(font);
         button9.setVisible(true);
-        button9.setToolTipText("Open Project Wiki");
+        button9.setToolTipText("Open report page");
         button9.setSize(313, 110);
         add(button9);
 
-        final JButton button10 = new JButton("  Wiki QA [0]   ");
+        final JButton button10 = new JButton("  Squash [0]   ");
         button10.setFont(font);
         button10.setVisible(true);
-        button10.setToolTipText("Open QA Section of Progect Wiki");
+        button10.setToolTipText("Open squash page");
         button10.setSize(313, 110);
         add(button10);
+
+        final JButton button11 = new JButton(" Test machines [-]   ");
+        button11.setFont(font);
+        button11.setVisible(true);
+        button11.setToolTipText("Open page with stend machines list");
+        button11.setSize(313, 110);
+        add(button11);
+
+        final JButton button12 = new JButton("  Wiki QA [=]   ");
+        button12.setFont(font);
+        button12.setVisible(true);
+        button12.setToolTipText("Open QA Section of Project Wiki");
+        button12.setSize(313, 110);
+        add(button12);
+
 
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("%APPDATA%\\111\\OpenGit.bat");
+                        Runtime.getRuntime().exec("%APPDATA%\\111\\Firmware.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -123,7 +138,7 @@ public class Links extends JPanel {
                 //Button3 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentation.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -138,7 +153,7 @@ public class Links extends JPanel {
                 //Button4 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDeviceDoc.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -153,7 +168,7 @@ public class Links extends JPanel {
                 //Button5 will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmware.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE2.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -168,7 +183,7 @@ public class Links extends JPanel {
                 //Button6 will perform next actions
                 if (ae.getSource() == button6) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE3.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -183,7 +198,7 @@ public class Links extends JPanel {
                 //Button7 will perform next actions
                 if (ae.getSource() == button7) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenGit.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -198,7 +213,7 @@ public class Links extends JPanel {
                 //Button8 will perform next actions
                 if (ae.getSource() == button8) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -213,7 +228,7 @@ public class Links extends JPanel {
                 //Button9 will perform next actions
                 if (ae.getSource() == button9) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiALL.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -227,6 +242,36 @@ public class Links extends JPanel {
             public void actionPerformed(ActionEvent ae) {
                 //Button10 will perform next actions
                 if (ae.getSource() == button10) {
+                    try {
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+
+        //Add ActionListeners of Button11
+        button11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button10 will perform next actions
+                if (ae.getSource() == button11) {
+                    try {
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenTestMashines.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+
+        //Add ActionListeners of Button12
+        button12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button10 will perform next actions
+                if (ae.getSource() == button12) {
                     try {
                         Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
@@ -272,6 +317,12 @@ public class Links extends JPanel {
                     case KeyEvent.VK_0:
                         button10.doClick();
                         break;
+                    case KeyEvent.VK_MINUS:
+                        button11.doClick();
+                        break;
+                    case KeyEvent.VK_EQUALS:
+                        button12.doClick();
+                        break;
                 }
             }
         };
@@ -286,6 +337,8 @@ public class Links extends JPanel {
         button8.addKeyListener(listener5);
         button9.addKeyListener(listener5);
         button10.addKeyListener(listener5);
+        button11.addKeyListener(listener5);
+        button12.addKeyListener(listener5);
         add(statusLabel[5]);
         this.addKeyListener(listener5);
     }
