@@ -639,7 +639,7 @@ public class TestFrame extends JFrame {
                     public void actionPerformed(ActionEvent ae) {
                         //Button1 will perform next actions
                         if (ae.getSource() == button1) {
-                            try {
+                             try {
                                 Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
                                 timeReset(2); //Set time of Script Execution Here
                             } catch (Exception r) {
