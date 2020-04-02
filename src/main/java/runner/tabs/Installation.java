@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Installation extends JFrame {
+public class Installation extends JPanel {
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
