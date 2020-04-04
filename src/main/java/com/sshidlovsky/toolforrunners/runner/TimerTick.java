@@ -1,4 +1,4 @@
-package runner;
+package com.sshidlovsky.toolforrunners.runner;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
