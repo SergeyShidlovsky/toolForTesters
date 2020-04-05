@@ -19,23 +19,19 @@ public class AppDataLogs extends JPanel {
 
     public AppDataLogs(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
         //Configure visual settings of Button1
-        final JButton button1 = new JButton("Open Appdata [1]");
+        final JButton button1 = new JButton("Clean Logs [1]");
         button1.setFont(font);
         button1.setToolTipText("Opens %Appata% folder");
         button1.setSize(313, 110);
         add(button1);
 
         //Configure visual setting of Button2
-        final JButton button2 = new JButton("Open logs [2]");
+        final JButton button2 = new JButton("Clean ProgrammData [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("Opens CUE Log folder");
         button2.setSize(313, 110);
         add(button2);
-
-        //Adding status label on First tab
-        add(statusLabel[0]);
-
 
         //Add ActionListeners of Button1
         button1.addActionListener(new ActionListener() {
@@ -43,7 +39,7 @@ public class AppDataLogs extends JPanel {
                 //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmwar1234214e.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
                         timeReset(10, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -58,7 +54,7 @@ public class AppDataLogs extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanProgrammData.bat");
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
