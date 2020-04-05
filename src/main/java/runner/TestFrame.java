@@ -63,73 +63,7 @@ public class TestFrame extends JFrame {
 
             AppDataLogs0() {
 
-                //Configure visual settings of Button1
-                final JButton button1 = new JButton("Open Appdata [1]");
-                button1.setFont(font);
-                button1.setToolTipText("Opens %Appata% folder");
-                button1.setSize(313, 110);
-                add(button1);
 
-                //Configure visual setting of Button2
-                final JButton button2 = new JButton("Open logs [2]");
-                button2.setFont(font);
-                button2.setVisible(true);
-                button2.setToolTipText("Opens CUE Log folder");
-                button2.setSize(313, 110);
-                add(button2);
-
-                //Adding status label on First tab
-                add(statusLabel[0]);
-
-
-                //Add ActionListeners of Button1
-                button1.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
-                        if (ae.getSource() == button1) {
-                            try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmwar1234214e.bat");
-                                timeReset(10); //Set time of Script Execution Here
-                            } catch (Exception r) {
-                                tm.showException();
-                            }
-                        }
-                    }
-                });
-
-                //Add ActionListeners of Button2
-                button2.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent ae) {
-                        //Button2 will perform next actions
-                        if (ae.getSource() == button2) {
-                            try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
-                                timeReset(4); //Set time of Script Execution Here
-                            } catch (Exception r) {
-                                tm.showException();
-                            }
-                        }
-                    }
-                });
-
-                //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
-                KeyListener listener0 = new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        switch (e.getKeyCode()) {
-                            case KeyEvent.VK_1:
-                                button1.doClick();
-                                break;
-                            case KeyEvent.VK_2:
-                                button2.doClick();
-                                break;
-                        }
-                    }
-                };
-
-                button1.addKeyListener(listener0);
-                this.add(add(statusLabel[0]));
-                this.addKeyListener(listener0);
 
             }
         }

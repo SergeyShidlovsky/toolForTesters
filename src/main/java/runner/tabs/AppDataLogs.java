@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Installation extends JPanel {
+public class AppDataLogs extends JPanel {
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -17,30 +17,34 @@ public class Installation extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
-    public Installation(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
-
-        final JButton button1 = new JButton("GetInstallLog [1]");
+    public AppDataLogs(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+        //Configure visual settings of Button1
+        final JButton button1 = new JButton("Open Appdata [1]");
         button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
+        button1.setToolTipText("Opens %Appata% folder");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("GetOEMFiles [2]");
+        //Configure visual setting of Button2
+        final JButton button2 = new JButton("Open logs [2]");
         button2.setFont(font);
         button2.setVisible(true);
-        button2.setToolTipText("Copy OEM files to Desktop");
+        button2.setToolTipText("Opens CUE Log folder");
         button2.setSize(313, 110);
         add(button2);
+
+        //Adding status label on First tab
+        add(statusLabel[0]);
+
 
         //Add ActionListeners of Button1
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
+                //Button1 will perform next act Grabilla screen capture: 2018-04-02 15:37:28ions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\Firmwar1234214e.bat");
+                        timeReset(10, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
                     }
@@ -51,11 +55,11 @@ public class Installation extends JPanel {
         //Add ActionListeners of Button2
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
+                //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                        timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
                     }
@@ -63,15 +67,14 @@ public class Installation extends JPanel {
             }
         });
 
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        KeyListener listener4 = new KeyAdapter() {
+        //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
+        KeyListener listener0 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_1:
                         button1.doClick();
                         break;
-
                     case KeyEvent.VK_2:
                         button2.doClick();
                         break;
@@ -79,9 +82,8 @@ public class Installation extends JPanel {
             }
         };
 
-        button1.addKeyListener(listener4);
-        button2.addKeyListener(listener4);
-        add(statusLabel[4]);
-        this.addKeyListener(listener4);
+        button1.addKeyListener(listener0);
+        this.add(add(statusLabel[0]));
+        this.addKeyListener(listener0);
     }
 }
