@@ -64,7 +64,6 @@ public class TestFrame extends JFrame {
             AppDataLogs0() {
 
 
-
             }
         }
 
@@ -147,7 +146,7 @@ public class TestFrame extends JFrame {
                         //Button1 will perform next actions
                         if (ae.getSource() == button1) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveProgramData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -163,7 +162,7 @@ public class TestFrame extends JFrame {
                         //Button2 will perform next actions
                         if (ae.getSource() == button2) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastArchivedProgramAppData.bat");
                                 timeReset(3); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -178,7 +177,7 @@ public class TestFrame extends JFrame {
                         //Button3 will perform next actions
                         if (ae.getSource() == button3) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\ClearAppData.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -193,7 +192,7 @@ public class TestFrame extends JFrame {
                         //Button4 will perform next actions
                         if (ae.getSource() == button4) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -208,7 +207,7 @@ public class TestFrame extends JFrame {
                         //Button5 will perform next actions
                         if (ae.getSource() == button5) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenDebugServiceFolder.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -223,7 +222,7 @@ public class TestFrame extends JFrame {
                         //Button6 will perform next actions
                         if (ae.getSource() == button6) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveAppdata.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenFolderWithArchivedPrgramAppData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -238,7 +237,7 @@ public class TestFrame extends JFrame {
                         //Button7 will perform next actions
                         if (ae.getSource() == button7) {
                             try {
-                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\RestartClearedApp.bat");
+                                Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenProgramData.bat");
                                 timeReset(1); //Set time of Script Execution Here
                             } catch (Exception r) {
                                 tm.showException();
@@ -285,7 +284,7 @@ public class TestFrame extends JFrame {
 
         }
 
-        tabbedPane.addTab("AppDataLogs", new AppDataLogs0() {
+        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabel) {
         });
 
         tabbedPane.addTab("Application", new Application1() {
