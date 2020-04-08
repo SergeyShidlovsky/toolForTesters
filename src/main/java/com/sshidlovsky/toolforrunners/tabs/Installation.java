@@ -29,7 +29,7 @@ public class Installation extends JPanel {
         final JButton button2 = new JButton("GetOEMFiles [2]");
         button2.setFont(font);
         button2.setVisible(true);
-        button2.setToolTipText("Copy  OEM files to Desktop");
+        button2.setToolTipText("Copy OEM files to Desktop");
         button2.setSize(313, 110);
         add(button2);
 
@@ -80,6 +80,7 @@ public class Installation extends JPanel {
         };
 
         button1.addKeyListener(listener4);
+        button2.addKeyListener(listener4);
         add(statusLabel[4]);
         this.addKeyListener(listener4);
     }
