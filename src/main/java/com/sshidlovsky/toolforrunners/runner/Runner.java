@@ -1,4 +1,4 @@
-package runner;
+package com.sshidlovsky.toolforrunners.runner;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

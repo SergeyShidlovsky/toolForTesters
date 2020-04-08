@@ -1,6 +1,6 @@
-package runner;
+package com.sshidlovsky.toolforrunners.runner;
 
-import runner.tabs.*;
+import com.sshidlovsky.toolforrunners.tabs.*;
 
 import java.awt.*;
 import java.awt.event.*;
