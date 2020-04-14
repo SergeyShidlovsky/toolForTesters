@@ -8,7 +8,6 @@ for /f "tokens=* delims=" %%i in ('dir /b /o:-d /t:W "%SystemRoot%\Inf\*.inf"') 
 set /a num+=1
 if /i !num! leq 3 (
 copy "%Systemroot%\Inf\%%i" "%USERPROFILE%\Desktop" > nul
-
 if errorlevel 1 (echo %%i >> errorslog.txt
 set /a err+=1
 )
