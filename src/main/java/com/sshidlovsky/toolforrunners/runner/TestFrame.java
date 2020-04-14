@@ -51,25 +51,6 @@ public class TestFrame extends JFrame {
         final Timer timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        class AppDataLogs0 extends JPanel {
-
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-
-            AppDataLogs0() {
-
-
-            }
-        }
-
-        //Class that displays time running down after script is started
-
-
         class Application1 extends JPanel {
 
             //Adding method for reset timer with new value
