@@ -287,7 +287,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabel) {
         });
 
-        tabbedPane.addTab("Application", new Application1() {
+        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabel) {
         });
 
         tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabel) {
