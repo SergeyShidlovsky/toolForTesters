@@ -59,7 +59,7 @@ public class Services extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Services\\OpenServices.bat");
+                        Runtime.getRuntime().exec("C:\\myRepos\\toolForTesters\\src\\main\\java\\runner\\scripts\\services\\OpenServices.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
