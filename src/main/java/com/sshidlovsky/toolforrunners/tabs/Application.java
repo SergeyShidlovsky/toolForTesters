@@ -1,10 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
-import com.sshidlovsky.toolforrunners.runner.TimerTick;
-
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
 public class Application extends JPanel {
 
