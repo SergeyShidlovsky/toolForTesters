@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksServices;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -59,7 +60,7 @@ public class Services extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\myRepos\\toolForTesters\\src\\main\\java\\runner\\scripts\\services\\OpenServices.bat");
+                        Runtime.getRuntime().exec(LinksServices.OPEN_SERVICE.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -74,7 +75,7 @@ public class Services extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Services\\StartAudioService.bat");
+                        Runtime.getRuntime().exec(LinksServices.START_AUDIO_SERVICE.getValue());
                         timeReset(3, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -89,7 +90,7 @@ public class Services extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Services\\StartIntegrationService.bat");
+                        Runtime.getRuntime().exec(LinksServices.START_INTEGRATION_SERVICE.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -104,7 +105,7 @@ public class Services extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Services\\StopAudioService.bat");
+                        Runtime.getRuntime().exec(LinksServices.STOP_AUDIO_SERVICE.getValue());
                         timeReset(3, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -119,7 +120,7 @@ public class Services extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Services\\StopIntegrationService.bat");
+                        Runtime.getRuntime().exec(LinksServices.STOP_INTEGRATION_SERVICE.getValue());
                         timeReset(5, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
