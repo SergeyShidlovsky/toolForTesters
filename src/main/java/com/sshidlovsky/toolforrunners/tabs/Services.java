@@ -17,6 +17,23 @@ public class Services extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
     public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         final JButton button1 = new JButton("Open Services [1]");
@@ -54,80 +71,12 @@ public class Services extends JPanel {
         button5.setSize(313, 110);
         add(button5);
 
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksServices.OPEN_SERVICE.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksServices.START_AUDIO_SERVICE.getValue());
-                        timeReset(3, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksServices.START_INTEGRATION_SERVICE.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button4
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec(LinksServices.STOP_AUDIO_SERVICE.getValue());
-                        timeReset(3, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button5
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button5) {
-                    try {
-                        Runtime.getRuntime().exec(LinksServices.STOP_INTEGRATION_SERVICE.getValue());
-                        timeReset(5, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners on all buttons
+        addActionListenerToButton(button1, LinksServices.OPEN_SERVICE.getValue(), timer, tm, 2);
+        addActionListenerToButton(button2, LinksServices.START_AUDIO_SERVICE.getValue(), timer, tm, 3);
+        addActionListenerToButton(button3, LinksServices.START_INTEGRATION_SERVICE.getValue(), timer, tm, 4);
+        addActionListenerToButton(button4, LinksServices.STOP_AUDIO_SERVICE.getValue(), timer, tm, 3);
+        addActionListenerToButton(button5, LinksServices.STOP_INTEGRATION_SERVICE.getValue(), timer, tm, 5);
 
         //Add KeyListener for Button1 press emulation by pressing Num1 button
         KeyListener listener8 = new KeyAdapter() {
@@ -153,6 +102,7 @@ public class Services extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener8);
         button2.addKeyListener(listener8);
         button3.addKeyListener(listener8);
