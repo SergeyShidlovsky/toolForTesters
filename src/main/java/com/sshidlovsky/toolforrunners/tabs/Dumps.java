@@ -20,34 +20,35 @@ public class Dumps extends JPanel {
 
     public Dumps(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("GelLastAutoDump [1]");
-
+        final JButton button1 = new JButton("Do Not Attach Last CUE Dump [1]");
         button1.setFont(font);
         button1.setVisible(true);
-        button1.setToolTipText("Select last autodump Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("GetLastManualDump [2]");
+        final JButton button2 = new JButton("Get Last CUE Dump ZIP [2]");
         button2.setFont(font);
         button2.setVisible(true);
-        button2.setToolTipText("Select last MANUALLY CREATED Dump and Copy to desktop Compress to *.zip Create %Username%* on FTP Copy *.zip to FTP Open Username folder");
         button2.setSize(313, 110);
         add(button2);
 
-        final JButton button3 = new JButton("GetLastMemoryDump [3]");
+        final JButton button3 = new JButton("Get Manual CUE Dump ZIP [3]");
         button3.setFont(font);
         button3.setVisible(true);
-        button3.setToolTipText("Copy to desktop and FTP MEMORY Dump after BSOD or other issues");
         button3.setSize(313, 110);
         add(button3);
 
-        final JButton button4 = new JButton("OpenTaskManager [4]");
+        final JButton button4 = new JButton("Get Memory Dump [4]");
         button4.setFont(font);
         button4.setVisible(true);
-        button4.setToolTipText("Open SysWOW64 task manager for Manual Dump creation");
         button4.setSize(313, 110);
         add(button4);
+
+        final JButton button5 = new JButton("Open Dump Folder [5]");
+        button5.setFont(font);
+        button5.setVisible(true);
+        button5.setSize(313, 110);
+        add(button5);
 
         //Add ActionListeners of Button1
         button1.addActionListener(new ActionListener() {
@@ -55,7 +56,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_LAST_CUE_DUMP_ZIP.getValue());
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\DoNotAttachGetLastCUEDump.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -70,7 +71,7 @@ public class Dumps extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_MANUAL_CUE_DUMP_ZIP.getValue());
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -85,7 +86,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_MEMORY_DUMP.getValue());
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -100,7 +101,22 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenTaskManager.bat");
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
+                        timeReset(2, timer, tm); //Set time of Script Execution Here
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+
+        //Add ActionListeners of Button4
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button5) {
+                    try {
+                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenDumpFolder.bat");
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -126,11 +142,19 @@ public class Dumps extends JPanel {
                     case KeyEvent.VK_4:
                         button4.doClick();
                         break;
+                    case KeyEvent.VK_5:
+                        button5.doClick();
+                        break;
                 }
             }
         };
 
+        //Add key Listeners to All buttons
         button1.addKeyListener(listener2);
+        button2.addKeyListener(listener2);
+        button3.addKeyListener(listener2);
+        button4.addKeyListener(listener2);
+        button5.addKeyListener(listener2);
         add(statusLabel[2]);
         this.addKeyListener(listener2);
     }
