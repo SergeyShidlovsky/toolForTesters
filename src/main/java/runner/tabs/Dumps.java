@@ -148,6 +148,7 @@ public class Dumps extends JPanel {
             }
         };
 
+        //Add key Listeners to All buttons
         button1.addKeyListener(listener2);
         button2.addKeyListener(listener2);
         button3.addKeyListener(listener2);
