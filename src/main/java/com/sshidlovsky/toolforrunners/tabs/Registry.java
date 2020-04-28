@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinkRegistry;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -44,7 +45,7 @@ public class Registry extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditor.bat");
+                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -57,9 +58,9 @@ public class Registry extends JPanel {
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
-                if (ae.getSource() == button1) {
+                if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditorClinkPIDs.bat");
+                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR_CLINK_PIDS.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -72,9 +73,9 @@ public class Registry extends JPanel {
         button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
-                if (ae.getSource() == button1) {
+                if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Registry\\OpenRegistryEditorErrorReporting.bat");
+                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR_ERROR_REPORTING.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
