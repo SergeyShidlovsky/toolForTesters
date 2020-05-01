@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksDumps;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -55,7 +56,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\DoNotAttachGetLastCUEDump.bat");
+                        Runtime.getRuntime().exec(LinksDumps.DO_NOT_ATTACH_GET_LAST_CUE_DUMP.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -70,7 +71,7 @@ public class Dumps extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetLastCUEDumpZIP.bat");
+                        Runtime.getRuntime().exec(LinksDumps.GET_LAST_CUE_DUMP_ZIP.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -85,7 +86,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetManualCUEDumpZIP.bat");
+                        Runtime.getRuntime().exec(LinksDumps.GET_MANUAL_CUE_DUMP_ZIP.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -100,7 +101,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\GetMemoryDump.bat");
+                        Runtime.getRuntime().exec(LinksDumps.GET_MEMORY_DUMP.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -115,7 +116,7 @@ public class Dumps extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Dumps\\OpenDumpFolder.bat");
+                        Runtime.getRuntime().exec(LinksDumps.OPEN_DUMP_FOLDER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
