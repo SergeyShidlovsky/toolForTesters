@@ -78,7 +78,7 @@ public class Services extends JPanel {
         addActionListenerToButton(button4, LinksServices.STOP_AUDIO_SERVICE.getValue(), timer, tm, 3);
         addActionListenerToButton(button5, LinksServices.STOP_INTEGRATION_SERVICE.getValue(), timer, tm, 5);
 
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
+        //Add KeyListener to tab
         KeyListener listener8 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
