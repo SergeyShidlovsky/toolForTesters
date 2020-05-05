@@ -21,6 +21,7 @@ public class Runner {
             robot.keyPress(KeyEvent.VK_TAB);
             robot.keyRelease(KeyEvent.VK_TAB);
         } catch (Exception r) {
+            r.printStackTrace();
         }
     }
 }
