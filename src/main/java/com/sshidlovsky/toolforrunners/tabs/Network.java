@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksNetwork;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -46,7 +47,7 @@ public class Network extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Network\\DisableNetworkAdapter.bat");
+                        Runtime.getRuntime().exec(LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -61,7 +62,7 @@ public class Network extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Network\\EnableNetworkAdapter.bat");
+                        Runtime.getRuntime().exec(LinksNetwork.ENABLE_NETWORK_ADAPTER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -76,7 +77,7 @@ public class Network extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Network\\OpenNetworkAdapter.bat");
+                        Runtime.getRuntime().exec(LinksNetwork.OPEN_NETWORK_ADAPTER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
