@@ -17,6 +17,23 @@ public class Links extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
         final JButton button1 = new JButton("Firmware [1]");
         button1.setFont(font);
@@ -102,7 +119,7 @@ public class Links extends JPanel {
         button12.setSize(313, 110);
         add(button12);
 
-
+        //Add ActionListeners on all buttons
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
@@ -327,6 +344,7 @@ public class Links extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener5);
         button2.addKeyListener(listener5);
         button3.addKeyListener(listener5);
