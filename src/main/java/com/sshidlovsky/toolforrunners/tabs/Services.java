@@ -9,6 +9,8 @@ import java.awt.event.*;
 
 public class Services extends JPanel {
 
+    final JButton button1;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
@@ -34,14 +36,19 @@ public class Services extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String caption, String tooltip, Font font) {
+        button = new JButton(caption);
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("Open Services [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Open Services window");
-        button1.setSize(313, 110);
-        add(button1);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Open Services [1]", "Open Services window", font);
 
         final JButton button2 = new JButton("Start Audio Service [2]");
         button2.setFont(font);
