@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksLinks;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -125,7 +126,7 @@ public class Links extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("%APPDATA%\\111\\Firmware.bat");
+                        Runtime.getRuntime().exec(LinksLinks.FIRMWARE.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -140,7 +141,7 @@ public class Links extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilder.bat");
+                        Runtime.getRuntime().exec(LinksLinks.BUILDER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -155,7 +156,7 @@ public class Links extends JPanel {
                 //Button3 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
+                        Runtime.getRuntime().exec(LinksLinks.BUILDS.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -170,7 +171,7 @@ public class Links extends JPanel {
                 //Button4 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDeviceDoc.bat");
+                        Runtime.getRuntime().exec(LinksLinks.DEVICE_INFO.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -185,7 +186,7 @@ public class Links extends JPanel {
                 //Button5 will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE2.bat");
+                        Runtime.getRuntime().exec(LinksLinks.DOCUMENTATION_CUE_2_0.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -200,7 +201,7 @@ public class Links extends JPanel {
                 //Button6 will perform next actions
                 if (ae.getSource() == button6) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE3.bat");
+                        Runtime.getRuntime().exec(LinksLinks.DOCUMENTATION_CUE_3_0.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -215,7 +216,7 @@ public class Links extends JPanel {
                 //Button7 will perform next actions
                 if (ae.getSource() == button7) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenGit.bat");
+                        Runtime.getRuntime().exec(LinksLinks.PHABRICATOR.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -230,7 +231,7 @@ public class Links extends JPanel {
                 //Button8 will perform next actions
                 if (ae.getSource() == button8) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
+                        Runtime.getRuntime().exec(LinksLinks.PM_AREA.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -245,7 +246,7 @@ public class Links extends JPanel {
                 //Button9 will perform next actions
                 if (ae.getSource() == button9) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
+                        Runtime.getRuntime().exec(LinksLinks.REPORT.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -260,7 +261,7 @@ public class Links extends JPanel {
                 //Button10 will perform next actions
                 if (ae.getSource() == button10) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
+                        Runtime.getRuntime().exec(LinksLinks.SQUASH.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -275,7 +276,7 @@ public class Links extends JPanel {
                 //Button10 will perform next actions
                 if (ae.getSource() == button11) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenTestMashines.bat");
+                        Runtime.getRuntime().exec(LinksLinks.TEST_MACHINES.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -290,7 +291,7 @@ public class Links extends JPanel {
                 //Button10 will perform next actions
                 if (ae.getSource() == button12) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
+                        Runtime.getRuntime().exec(LinksLinks.WIKI_QA.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
