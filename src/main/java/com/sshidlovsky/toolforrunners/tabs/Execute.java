@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Execute extends JPanel  {
+public class Execute extends JPanel {
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -16,6 +16,23 @@ public class Execute extends JPanel  {
         timer.stop();             //Stopping previous timer before execution of current script
         tm.setCountdown(seconds); //Setting time of  Script execution
         timer.start();            //Starting timer after script initiation
+    }
+
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
     }
 
     public Execute(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
@@ -76,117 +93,15 @@ public class Execute extends JPanel  {
         button8.setSize(313, 110);
         add(button8);
 
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_APPLICATION_WIZARD.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_AUDIO_SETTINGS.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button3 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_MANAGER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_AND_PRINTERS.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button5) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_METADATA.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button6) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_DPR_CONNECTION.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button7) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_TASK_MANAGER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button8) {
-                    try {
-                        Runtime.getRuntime().exec(LinksExecute.OPEN_UPDATE_SERVICE.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListener to all buttons
+        addActionListenerToButton(button1, LinksExecute.OPEN_APPLICATION_WIZARD.getValue(), timer, tm, 2);
+        addActionListenerToButton(button2, LinksExecute.OPEN_AUDIO_SETTINGS.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_MANAGER.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_AND_PRINTERS.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_METADATA.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_DPR_CONNECTION.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_TASK_MANAGER.getValue(), timer, tm, 2);
+        addActionListenerToButton(button1, LinksExecute.OPEN_UPDATE_SERVICE.getValue(), timer, tm, 2);
 
         //Add KeyListener for Button1 press emulation by pressing Num1 button
         KeyListener listener3 = new KeyAdapter() {
