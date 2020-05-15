@@ -9,6 +9,12 @@ import java.awt.event.*;
 
 public class Services extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    final JButton button4;
+    final JButton button5;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
@@ -34,42 +40,29 @@ public class Services extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("Open Services [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Open Services window");
-        button1.setSize(313, 110);
-        add(button1);
+        //Create list of buttons
+        button1 = new JButton("Open Services [1]");
+        button2 = new JButton("Start Audio Service [2]");
+        button3 = new JButton("Start Integration Service [3]");
+        button4 = new JButton("Stop Audio Service [4]");
+        button5 = new JButton("Stop Integration Service [5]");
 
-        final JButton button2 = new JButton("Start Audio Service [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Start Audio Service.");
-        button2.setSize(313, 110);
-        add(button2);
-
-        final JButton button3 = new JButton("Start Integration Service [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Start Integration Service");
-        button3.setSize(313, 110);
-        add(button3);
-
-        final JButton button4 = new JButton("Stop Audio Service [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setToolTipText("Stop Audio Service");
-        button4.setSize(313, 110);
-        add(button4);
-
-        final JButton button5 = new JButton("Stop Integration Service [5]");
-        button5.setFont(font);
-        button5.setVisible(true);
-        button5.setToolTipText("Stop Integration Service");
-        button5.setSize(313, 110);
-        add(button5);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Open Services window", font);
+        addButtonWithPreferencesToTab(button2,"Start Audio Service", font);
+        addButtonWithPreferencesToTab(button3,"Start Integration Service", font);
+        addButtonWithPreferencesToTab(button4,"Stop Audio Service", font);
+        addButtonWithPreferencesToTab(button5,"Stop Integration Service", font);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksServices.OPEN_SERVICE.getValue(), timer, tm, 2);
