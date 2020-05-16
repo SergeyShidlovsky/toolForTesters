@@ -9,6 +9,12 @@ import java.awt.event.*;
 
 public class Registry extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    private JLabel tabStatusLabel;
+    private KeyListener listener7;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
@@ -36,21 +42,21 @@ public class Registry extends JPanel {
 
     public Registry(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("OpenRegistryEditor [1]");
+        button1 = new JButton("OpenRegistryEditor [1]");
         button1.setFont(font);
         button1.setVisible(true);
         button1.setToolTipText("Opens Registry Editor");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
+        button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("Open Registry Editor Clink PIDs");
         button2.setSize(313, 110);
         add(button2);
 
-        final JButton button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
+        button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
         button3.setFont(font);
         button3.setVisible(true);
         button3.setToolTipText("Open Registry Editor Error Reporting");
@@ -63,7 +69,7 @@ public class Registry extends JPanel {
         addActionListenerToButton(button3, LinkRegistry.OPEN_REGISTRY_EDITOR_ERROR_REPORTING.getValue(), timer, tm, 2);
 
         //Add KeyListener to tab
-        KeyListener listener7 = new KeyAdapter() {
+        listener7 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -84,7 +90,9 @@ public class Registry extends JPanel {
         button1.addKeyListener(listener7);
         button2.addKeyListener(listener7);
         button3.addKeyListener(listener7);
-        add(statusLabel[7]);
-        this.addKeyListener(listener7);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[7];
+        add(tabStatusLabel);
     }
 }
