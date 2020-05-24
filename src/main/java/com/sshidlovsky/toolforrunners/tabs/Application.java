@@ -18,6 +18,23 @@ public class Application extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
     public Application(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         //Configure visual settings of Button1
@@ -50,73 +67,19 @@ public class Application extends JPanel {
         button4.setSize(313, 110);
         add(button4);
 
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksApplication
-                                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE.getValue());
-                        timeReset(1, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-                // СМОТРИ СЮДА http://forum.sources.ru/index.php?showtopic=133192&view=showall
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksApplication
-                                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
-                                .getValue());
-                        timeReset(3, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button3 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksApplication
-                                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
-                                .getValue());
-                        timeReset(1, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button4
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec(LinksApplication
-                                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
-                                .getValue());
-                        timeReset(1, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners on all buttons
+        addActionListenerToButton(button1, LinksApplication
+                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
+                .getValue(), timer, tm, 1);
+        addActionListenerToButton(button2, LinksApplication
+                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
+                .getValue(), timer, tm, 1);
+        addActionListenerToButton(button3, LinksApplication
+                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
+                .getValue(), timer, tm, 1);
+        addActionListenerToButton(button4, LinksApplication
+                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
+                .getValue(), timer, tm, 1);
 
         //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
         KeyListener listener = new KeyAdapter() {
@@ -139,6 +102,7 @@ public class Application extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener);
         button2.addKeyListener(listener);
         button3.addKeyListener(listener);
