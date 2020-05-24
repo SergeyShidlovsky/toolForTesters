@@ -6,6 +6,8 @@ import com.sshidlovsky.toolforrunners.runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Services extends JPanel {
 
@@ -16,6 +18,7 @@ public class Services extends JPanel {
     final JButton button5;
     private JLabel tabStatusLabel;
     private KeyListener listener8;
+    private Map<Integer, JButton> buttonAssignment;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -42,12 +45,28 @@ public class Services extends JPanel {
         });
     }
 
-    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font, int keyCode) {
         button.setFont(font);
         button.setVisible(true);
         button.setToolTipText(tooltip);
         button.setSize(313, 110);
         add(button);
+        buttonAssignment.put(keyCode, button);
+    }
+
+    private KeyListener addKeyListenerToTab(){
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Integer currentAssignment;
+                for (int i = 0; i < buttonAssignment.values().size(); i++) {
+                    currentAssignment = (Integer) buttonAssignment.keySet().toArray()[i];
+                    if (e.getKeyCode() == currentAssignment) {
+                        buttonAssignment.get(currentAssignment).doClick();
+                    }
+                }
+            }
+        };
     }
 
     public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
@@ -59,12 +78,15 @@ public class Services extends JPanel {
         button4 = new JButton("Stop Audio Service [4]");
         button5 = new JButton("Stop Integration Service [5]");
 
+        //Add empty Map of buttons assignment
+        buttonAssignment = new HashMap<Integer, JButton>();
+
         //Add all buttons to tab
-        addButtonWithPreferencesToTab(button1,"Open Services window", font);
-        addButtonWithPreferencesToTab(button2,"Start Audio Service", font);
-        addButtonWithPreferencesToTab(button3,"Start Integration Service", font);
-        addButtonWithPreferencesToTab(button4,"Stop Audio Service", font);
-        addButtonWithPreferencesToTab(button5,"Stop Integration Service", font);
+        addButtonWithPreferencesToTab(button1, "Open Services window", font, KeyEvent.VK_1);
+        addButtonWithPreferencesToTab(button2, "Start Audio Service", font, KeyEvent.VK_2);
+        addButtonWithPreferencesToTab(button3, "Start Integration Service", font, KeyEvent.VK_3);
+        addButtonWithPreferencesToTab(button4, "Stop Audio Service", font, KeyEvent.VK_4);
+        addButtonWithPreferencesToTab(button5, "Stop Integration Service", font, KeyEvent.VK_5);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksServices.OPEN_SERVICE.getValue(), timer, tm, 2);
@@ -73,29 +95,8 @@ public class Services extends JPanel {
         addActionListenerToButton(button4, LinksServices.STOP_AUDIO_SERVICE.getValue(), timer, tm, 3);
         addActionListenerToButton(button5, LinksServices.STOP_INTEGRATION_SERVICE.getValue(), timer, tm, 5);
 
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        listener8 = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_1:
-                        button1.doClick();
-                        break;
-                    case KeyEvent.VK_2:
-                        button2.doClick();
-                        break;
-                    case KeyEvent.VK_3:
-                        button3.doClick();
-                        break;
-                    case KeyEvent.VK_4:
-                        button4.doClick();
-                        break;
-                    case KeyEvent.VK_5:
-                        button5.doClick();
-                        break;
-                }
-            }
-        };
+        //Create tab-specific KeyListener
+        listener8 = addKeyListenerToTab();
 
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener8);
