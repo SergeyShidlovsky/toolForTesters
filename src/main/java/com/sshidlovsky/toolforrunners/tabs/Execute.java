@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksExecute;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -80,7 +81,7 @@ public class Execute extends JPanel  {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_APPLICATION_WIZARD.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -94,7 +95,7 @@ public class Execute extends JPanel  {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_AUDIO_SETTINGS.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -108,7 +109,7 @@ public class Execute extends JPanel  {
                 //Button3 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_MANAGER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -122,7 +123,7 @@ public class Execute extends JPanel  {
                 //Button4 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_AND_PRINTERS.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -136,7 +137,7 @@ public class Execute extends JPanel  {
                 //Button4 will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_DEVICE_METADATA.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -150,7 +151,7 @@ public class Execute extends JPanel  {
                 //Button4 will perform next actions
                 if (ae.getSource() == button6) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_DPR_CONNECTION.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -164,7 +165,7 @@ public class Execute extends JPanel  {
                 //Button4 will perform next actions
                 if (ae.getSource() == button7) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_TASK_MANAGER.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -178,7 +179,7 @@ public class Execute extends JPanel  {
                 //Button4 will perform next actions
                 if (ae.getSource() == button8) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Exec\\");
+                        Runtime.getRuntime().exec(LinksExecute.OPEN_UPDATE_SERVICE.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();

@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksLinks;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -15,6 +16,23 @@ public class Links extends JPanel {
         timer.stop();             //Stopping previous timer before execution of current script
         tm.setCountdown(seconds); //Setting time of  Script execution
         timer.start();            //Starting timer after script initiation
+    }
+
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
     }
 
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
@@ -102,185 +120,19 @@ public class Links extends JPanel {
         button12.setSize(313, 110);
         add(button12);
 
-
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec("%APPDATA%\\111\\Firmware.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilder.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button3 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenBuilds.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button4
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button4 will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDeviceDoc.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button5
-        button5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button5 will perform next actions
-                if (ae.getSource() == button5) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE2.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button6
-        button6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button6 will perform next actions
-                if (ae.getSource() == button6) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenDocumentationCUE3.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button7
-        button7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button7 will perform next actions
-                if (ae.getSource() == button7) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenGit.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button8
-        button8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button8 will perform next actions
-                if (ae.getSource() == button8) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenPMArea.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button9
-        button9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button9 will perform next actions
-                if (ae.getSource() == button9) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenReport.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button10
-        button10.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button10 will perform next actions
-                if (ae.getSource() == button10) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenSquash.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button11
-        button11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button10 will perform next actions
-                if (ae.getSource() == button11) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenTestMashines.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button12
-        button12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button10 will perform next actions
-                if (ae.getSource() == button12) {
-                    try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Links\\OpenWikiQA.bat");
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners on all buttons
+        addActionListenerToButton(button1, LinksLinks.FIRMWARE.getValue(), timer, tm, 2);
+        addActionListenerToButton(button2, LinksLinks.BUILDER.getValue(), timer, tm, 2);
+        addActionListenerToButton(button3, LinksLinks.BUILDS.getValue(), timer, tm, 2);
+        addActionListenerToButton(button4, LinksLinks.DEVICE_INFO.getValue(), timer, tm, 2);
+        addActionListenerToButton(button5, LinksLinks.DOCUMENTATION_CUE_2_0.getValue(), timer, tm, 2);
+        addActionListenerToButton(button6, LinksLinks.DOCUMENTATION_CUE_3_0.getValue(), timer, tm, 2);
+        addActionListenerToButton(button7, LinksLinks.PHABRICATOR.getValue(), timer, tm, 2);
+        addActionListenerToButton(button8, LinksLinks.PM_AREA.getValue(), timer, tm, 2);
+        addActionListenerToButton(button9, LinksLinks.REPORT.getValue(), timer, tm, 2);
+        addActionListenerToButton(button10, LinksLinks.SQUASH.getValue(), timer, tm, 2);
+        addActionListenerToButton(button11, LinksLinks.TEST_MACHINES.getValue(), timer, tm, 2);
+        addActionListenerToButton(button12, LinksLinks.WIKI_QA.getValue(), timer, tm, 2);
 
         //Add KeyListener for Button press
         KeyListener listener5 = new KeyAdapter() {
@@ -327,6 +179,7 @@ public class Links extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener5);
         button2.addKeyListener(listener5);
         button3.addKeyListener(listener5);

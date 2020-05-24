@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksInstallation;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -39,7 +40,7 @@ public class Installation extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetInstallLog.bat");
+                        Runtime.getRuntime().exec(LinksInstallation.GET_OEM_FILES.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -54,7 +55,7 @@ public class Installation extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Installation\\GetOEMFiles.bat");
+                        Runtime.getRuntime().exec(LinksInstallation.GET_INSTALL_LOG.getValue());
                         timeReset(2, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();

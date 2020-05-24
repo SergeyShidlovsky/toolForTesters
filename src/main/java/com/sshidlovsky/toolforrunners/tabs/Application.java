@@ -1,5 +1,6 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksApplication;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -55,7 +56,8 @@ public class Application extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveProgramData.bat");
+                        Runtime.getRuntime().exec(LinksApplication
+                                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE.getValue());
                         timeReset(1, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -71,7 +73,9 @@ public class Application extends JPanel {
                 //Button2 will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastArchivedProgramAppData.bat");
+                        Runtime.getRuntime().exec(LinksApplication
+                                .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
+                                .getValue());
                         timeReset(3, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -86,7 +90,9 @@ public class Application extends JPanel {
                 //Button3 will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Application\\RestartWithDebugLoggingAndClearedAppdataProgramdataRestrtService.bat");
+                        Runtime.getRuntime().exec(LinksApplication
+                                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
+                                .getValue());
                         timeReset(1, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -101,7 +107,9 @@ public class Application extends JPanel {
                 //Button4 will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\Application\\ORestartWithDebugLoggingAndClearedAppdataProgramdataRestrtServiceWithBackUp.bat");
+                        Runtime.getRuntime().exec(LinksApplication
+                                .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
+                                .getValue());
                         timeReset(1, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
