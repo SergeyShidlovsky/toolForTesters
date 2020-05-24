@@ -58,11 +58,11 @@ public class Services extends JPanel {
         return new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                Integer currentAssignment;
+                Integer currentAssignmentCode;
                 for (int i = 0; i < buttonAssignment.values().size(); i++) {
-                    currentAssignment = (Integer) buttonAssignment.keySet().toArray()[i];
-                    if (e.getKeyCode() == currentAssignment) {
-                        buttonAssignment.get(currentAssignment).doClick();
+                    currentAssignmentCode = (Integer) buttonAssignment.keySet().toArray()[i];
+                    if (e.getKeyCode() == currentAssignmentCode) {
+                        buttonAssignment.get(currentAssignmentCode).doClick();
                     }
                 }
             }
