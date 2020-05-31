@@ -9,6 +9,21 @@ import java.awt.event.*;
 
 public class Links extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    final JButton button4;
+    final JButton button5;
+    final JButton button6;
+    final JButton button7;
+    final JButton button8;
+    final JButton button9;
+    final JButton button10;
+    final JButton button11;
+    final JButton button12;
+    private JLabel tabStatusLabel;
+    private KeyListener listener5;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -36,84 +51,84 @@ public class Links extends JPanel {
     }
 
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
-        final JButton button1 = new JButton("Firmware [1]");
+        button1 = new JButton("Firmware [1]");
         button1.setFont(font);
         button1.setVisible(true);
         button1.setToolTipText("Open page with FW images");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("Builder [2]");
+        button2 = new JButton("Builder [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("Open page with builder");
         button2.setSize(313, 110);
         add(button2);
 
-        final JButton button3 = new JButton("Builds [3]");
+        button3 = new JButton("Builds [3]");
         button3.setFont(font);
         button3.setVisible(true);
         button3.setToolTipText("Open page with builds ");
         button3.setSize(313, 110);
         add(button3);
 
-        final JButton button4 = new JButton("DeviceDoc [4]");
+        button4 = new JButton("DeviceDoc [4]");
         button4.setFont(font);
         button4.setVisible(true);
         button4.setToolTipText("Open device documents page");
         button4.setSize(313, 110);
         add(button4);
 
-        final JButton button5 = new JButton(" DocumentationCUE 2.0 [5] ");
+        button5 = new JButton(" DocumentationCUE 2.0 [5] ");
         button5.setFont(font);
         button5.setVisible(true);
         button5.setToolTipText("Open CUE 2.0 documentation page");
         button5.setSize(313, 110);
         add(button5);
 
-        final JButton button6 = new JButton("DocumentationCUE 3.0 [6]");
+        button6 = new JButton("DocumentationCUE 3.0 [6]");
         button6.setFont(font);
         button6.setVisible(true);
         button6.setToolTipText("Open CUE 3.0 documentation page");
         button6.setSize(313, 110);
         add(button6);
 
-        final JButton button7 = new JButton(" Phabricator [7] ");
+        button7 = new JButton(" Phabricator [7] ");
         button7.setFont(font);
         button7.setVisible(true);
         button7.setToolTipText("Open Phabricator page");
         button7.setSize(313, 110);
         add(button7);
 
-        final JButton button8 = new JButton("PMArea [8]");
+        button8 = new JButton("PMArea [8]");
         button8.setFont(font);
         button8.setVisible(true);
         button8.setToolTipText("Open PMArea");
         button8.setSize(313, 110);
         add(button8);
 
-        final JButton button9 = new JButton(" Report [9] ");
+        button9 = new JButton(" Report [9] ");
         button9.setFont(font);
         button9.setVisible(true);
         button9.setToolTipText("Open report page");
         button9.setSize(313, 110);
         add(button9);
 
-        final JButton button10 = new JButton("  Squash [0]   ");
+        button10 = new JButton("  Squash [0]   ");
         button10.setFont(font);
         button10.setVisible(true);
         button10.setToolTipText("Open squash page");
         button10.setSize(313, 110);
         add(button10);
 
-        final JButton button11 = new JButton(" Test machines [-]   ");
+        button11 = new JButton(" Test machines [-]   ");
         button11.setFont(font);
         button11.setVisible(true);
         button11.setToolTipText("Open page with stend machines list");
         button11.setSize(313, 110);
         add(button11);
 
-        final JButton button12 = new JButton("  Wiki QA [=]   ");
+        button12 = new JButton("  Wiki QA [=]   ");
         button12.setFont(font);
         button12.setVisible(true);
         button12.setToolTipText("Open QA Section of Project Wiki");
@@ -135,7 +150,7 @@ public class Links extends JPanel {
         addActionListenerToButton(button12, LinksLinks.WIKI_QA.getValue(), timer, tm, 2);
 
         //Add KeyListener for Button press
-        KeyListener listener5 = new KeyAdapter() {
+        listener5 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -192,7 +207,9 @@ public class Links extends JPanel {
         button10.addKeyListener(listener5);
         button11.addKeyListener(listener5);
         button12.addKeyListener(listener5);
-        add(statusLabel[5]);
-        this.addKeyListener(listener5);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[5];
+        add(tabStatusLabel);
     }
 }
