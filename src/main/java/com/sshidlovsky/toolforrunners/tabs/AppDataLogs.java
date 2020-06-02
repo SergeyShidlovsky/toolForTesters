@@ -1,5 +1,6 @@
 package  com.sshidlovsky.toolforrunners.tabs;
 
+import com.sshidlovsky.toolforrunners.linkenums.LinksAppDataLogs;
 import  com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
@@ -100,7 +101,6 @@ public class AppDataLogs extends JPanel {
         final JButton button12 = new JButton("Open Program Data.bat [q]");
         button12.setFont(font);
         button12.setVisible(true);
-        button12.setToolTipText("Opens CUE Log folder");
         button12.setSize(313, 110);
         add(button12);
 
@@ -110,7 +110,7 @@ public class AppDataLogs extends JPanel {
                 //Button1 will perform next actions
                 if (ae.getSource() == button1) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanLogs.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAN_LOGS.getValue());
                         timeReset(10, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -124,7 +124,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button2) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\CleanProgrammData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAN_PROGRAMDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -138,7 +138,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button3) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\ClearAppData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAR_APPDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -152,7 +152,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button4) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveAppdata.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_ARCIVE_APPDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -166,7 +166,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button5) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetArchiveProgramData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_ARCHIVE_PROGRAMDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -180,7 +180,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button6) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastArchivedProgramAppData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_LAST_ARHIVED_PROGRAMDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -194,7 +194,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button7) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\GetLastLog.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_LAST_LOG.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -208,7 +208,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button8) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenAppData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_APPDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -222,7 +222,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button9) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenDebugServiceFolder.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_DEBUG_SERVICE_FOLDER.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -236,7 +236,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button10) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenFolderWithArchivedPrgramAppData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_FOLDER_WITH_ARCHIVED_PROGRAM_APPDATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -250,7 +250,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button11) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenLogs.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_LOGS.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();
@@ -264,7 +264,7 @@ public class AppDataLogs extends JPanel {
                 //Button will perform next actions
                 if (ae.getSource() == button12) {
                     try {
-                        Runtime.getRuntime().exec("C:\\toolForRunners\\AppDataLogs\\OpenProgramData.bat");
+                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_PROGRAM_DATA.getValue());
                         timeReset(4, timer, tm); //Set time of Script Execution Here
                     } catch (Exception r) {
                         tm.showException();

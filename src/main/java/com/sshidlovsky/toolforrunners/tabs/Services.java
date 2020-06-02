@@ -14,6 +14,8 @@ public class Services extends JPanel {
     final JButton button3;
     final JButton button4;
     final JButton button5;
+    private JLabel tabStatusLabel;
+    private KeyListener listener8;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -71,8 +73,8 @@ public class Services extends JPanel {
         addActionListenerToButton(button4, LinksServices.STOP_AUDIO_SERVICE.getValue(), timer, tm, 3);
         addActionListenerToButton(button5, LinksServices.STOP_INTEGRATION_SERVICE.getValue(), timer, tm, 5);
 
-        //Add KeyListener to tab
-        KeyListener listener8 = new KeyAdapter() {
+        //Add KeyListener for Button1 press emulation by pressing Num1 button
+        listener8 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -101,7 +103,9 @@ public class Services extends JPanel {
         button3.addKeyListener(listener8);
         button4.addKeyListener(listener8);
         button5.addKeyListener(listener8);
-        add(statusLabel[8]);
-        this.addKeyListener(listener8);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[8];
+        add(tabStatusLabel);
     }
 }

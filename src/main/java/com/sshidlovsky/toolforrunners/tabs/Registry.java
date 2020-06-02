@@ -66,7 +66,7 @@ public class Registry extends JPanel {
         addActionListenerToButton(button3, LinkRegistry.OPEN_REGISTRY_EDITOR_ERROR_REPORTING.getValue(), timer, tm, 2);
 
         //Add KeyListener to tab
-        KeyListener listener7 = new KeyAdapter() {
+        listener7 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -87,7 +87,9 @@ public class Registry extends JPanel {
         button1.addKeyListener(listener7);
         button2.addKeyListener(listener7);
         button3.addKeyListener(listener7);
-        add(statusLabel[7]);
-        this.addKeyListener(listener7);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[7];
+        add(tabStatusLabel);
     }
 }
