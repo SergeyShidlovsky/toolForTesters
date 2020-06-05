@@ -40,28 +40,25 @@ public class Registry extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Registry(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
+        //Create list of buttons
         button1 = new JButton("OpenRegistryEditor [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Opens Registry Editor");
-        button1.setSize(313, 110);
-        add(button1);
-
         button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Open Registry Editor Clink PIDs");
-        button2.setSize(313, 110);
-        add(button2);
-
         button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Open Registry Editor Error Reporting");
-        button3.setSize(313, 110);
-        add(button3);
+
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Opens Registry Editor", font);
+        addButtonWithPreferencesToTab(button2,"Open Registry Editor Clink PIDs", font);
+        addButtonWithPreferencesToTab(button2,"Open Registry Editor Error Reporting", font);
 
         //Add ActionListeners to all Buttons
         addActionListenerToButton(button1, LinkRegistry.OPEN_REGISTRY_EDITOR.getValue(),timer,tm,2);
