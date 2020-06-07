@@ -172,7 +172,7 @@ public class Execute extends JPanel {
         });
 
         //Add KeyListener for Button1 press emulation by pressing Num1 button
-        KeyListener listener3 = new KeyAdapter() {
+        listener3 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
