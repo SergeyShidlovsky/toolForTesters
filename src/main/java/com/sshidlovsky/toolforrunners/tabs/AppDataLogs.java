@@ -1,13 +1,28 @@
-package  com.sshidlovsky.toolforrunners.tabs;
+package com.sshidlovsky.toolforrunners.tabs;
 
 import com.sshidlovsky.toolforrunners.linkenums.LinksAppDataLogs;
-import  com.sshidlovsky.toolforrunners.runner.TimerTick;
+import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class AppDataLogs extends JPanel {
+
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    final JButton button4;
+    final JButton button5;
+    final JButton button6;
+    final JButton button7;
+    final JButton button8;
+    final JButton button9;
+    final JButton button10;
+    final JButton button11;
+    final JButton button12;
+    private JLabel tabStatusLabel;
+    private KeyListener listener0;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -18,91 +33,43 @@ public class AppDataLogs extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public AppDataLogs(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
-        //Configure visual settings of Button1
-        final JButton button1 = new JButton("Clean Logs [1]");
-        button1.setFont(font);
-        button1.setToolTipText("Opens %Appata% folder");
-        button1.setSize(313, 110);
-        add(button1);
 
-        //Configure visual setting of Button2
-        final JButton button2 = new JButton("Clean ProgrammData [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Opens CUE Log folder");
-        button2.setSize(313, 110);
-        add(button2);
+        //Create list of buttons
+        button1 = new JButton("Clean Logs [1] ");
+        button2 = new JButton("Clean ProgrammData [2] ");
+        button3 = new JButton("Clear AppData [3] ");
+        button4 = new JButton("Get Archive Appdata [4] ");
+        button5 = new JButton("Get Archive ProgramData [5] ");
+        button6 = new JButton("Get Last Archived Program AppData [6] ");
+        button7 = new JButton("Get Last Log [7] ");
+        button8 = new JButton("Open AppData [8] ");
+        button9 = new JButton("Open Debug Service Folder [9] ");
+        button10 = new JButton("Open Folder With Archived Program App Data [-] ");
+        button11 = new JButton("Open Logs [=] ");
+        button12 = new JButton("Open Program Data [q] ");
 
-        //Configure visual setting of Button3
-        final JButton button3 = new JButton("Clear AppData [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setSize(313, 110);
-        add(button3);
-
-        //Configure visual setting of Button4
-        final JButton button4 = new JButton("Get Archive Appdata [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setSize(313, 110);
-        add(button4);
-
-        //Configure visual setting of Button5
-        final JButton button5 = new JButton("Get Archive ProgramData [5]");
-        button5.setFont(font);
-        button5.setVisible(true);
-        button5.setSize(313, 110);
-        add(button5);
-
-        //Configure visual setting of Button6
-        final JButton button6 = new JButton("Get Last Archived Program AppData [6]");
-        button6.setFont(font);
-        button6.setVisible(true);
-        button6.setSize(313, 110);
-        add(button6);
-
-        //Configure visual setting of Button7
-        final JButton button7 = new JButton("Get Last Log [7]");
-        button7.setFont(font);
-        button7.setVisible(true);
-        button7.setSize(313, 110);
-        add(button7);
-
-        //Configure visual setting of Button8
-        final JButton button8 = new JButton("Open AppData [8]");
-        button8.setFont(font);
-        button8.setVisible(true);
-        button8.setSize(313, 110);
-        add(button8);
-
-        //Configure visual setting of Button9
-        final JButton button9 = new JButton("Open Debug Service Folder [9]");
-        button9.setFont(font);
-        button9.setVisible(true);
-        button9.setSize(313, 110);
-        add(button9);
-
-        //Configure visual setting of Button10
-        final JButton button10 = new JButton("Open Folder With Archived Program App Data [-]");
-        button10.setFont(font);
-        button10.setVisible(true);
-        button10.setSize(313, 110);
-        add(button10);
-
-        //Configure visual setting of Button11
-        final JButton button11 = new JButton("Open Logs [=]");
-        button11.setFont(font);
-        button11.setVisible(true);
-        button11.setSize(313, 110);
-        add(button11);
-
-        //Configure visual setting of Button12
-        final JButton button12 = new JButton("Open Program Data.bat [q]");
-        button12.setFont(font);
-        button12.setVisible(true);
-        button12.setSize(313, 110);
-        add(button12);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Clean Logs", font);
+        addButtonWithPreferencesToTab(button2, "lean ProgrammData", font);
+        addButtonWithPreferencesToTab(button3, "Clear AppData", font);
+        addButtonWithPreferencesToTab(button4, "Get Archive Appdata", font);
+        addButtonWithPreferencesToTab(button5, "Get Archive ProgramData", font);
+        addButtonWithPreferencesToTab(button6, "Get Last Archived Program AppData", font);
+        addButtonWithPreferencesToTab(button7, "et Last Log", font);
+        addButtonWithPreferencesToTab(button8, "Open AppData", font);
+        addButtonWithPreferencesToTab(button9, "Open Debug Service Folder", font);
+        addButtonWithPreferencesToTab(button10, "Open Folder With Archived Program App Data", font);
+        addButtonWithPreferencesToTab(button11, "Open Logs", font);
+        addButtonWithPreferencesToTab(button12, "Open Program Data", font);
 
         //Add ActionListeners of Button1
         button1.addActionListener(new ActionListener() {
@@ -273,8 +240,8 @@ public class AppDataLogs extends JPanel {
             }
         });
 
-        //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
-        KeyListener listener0 = new KeyAdapter() {
+        //Add KeyListener for Button1 press emulation by pressing Num1 button
+        listener0 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -288,8 +255,11 @@ public class AppDataLogs extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener0);
-        this.add(add(statusLabel[0]));
-        this.addKeyListener(listener0);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[0];
+        add(tabStatusLabel);
     }
 }
