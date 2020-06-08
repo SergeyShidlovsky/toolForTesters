@@ -8,6 +8,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class FeatureRequestOps {
 
     private Client client;
@@ -33,7 +35,7 @@ public class FeatureRequestOps {
         addIssueToBoardPayload = new HashMap<String, String>();
     }
 
-    public int createIssue() throws IOException {
+    public int createIssue() throws IOException, RuntimeException {
 
         WebResource webResource = client
                 .resource(UriBuilder.fromUri(LinksFeatureRequest.REPOSITORY_URL.getValue() +
@@ -46,8 +48,8 @@ public class FeatureRequestOps {
         String firstNode = mapper.writeValueAsString(titleAndDescription);
         String secondNode = mapper.writeValueAsString(labels);
         String requestBody = firstNode.substring(0, firstNode.length() - 1) + "," + secondNode.substring(1);
-        //ToDo replace with log4j
-        System.out.println("Request " + requestBody);
+
+        log.info( "Request " + requestBody);
 
         ClientResponse response = webResource
                 .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
@@ -55,20 +57,19 @@ public class FeatureRequestOps {
                 .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
                 .post(ClientResponse.class, requestBody);
 
-        //ToDo replace with log4j
         String responseBody = response.getEntity(String.class);
-        System.out.println("Response " + responseBody);
+        log.info("Response " + responseBody);
+
         int firstIndexOfId = responseBody.indexOf("\",\"id\":" ) + 7;
         int lastIndexOfId = responseBody.indexOf(",\"node_id\":\"");
         int issueId = Integer.parseInt(responseBody.substring(firstIndexOfId, lastIndexOfId));
-        //ToDo replace with log4j
-        System.out.println("IssueId : " + issueId);
+        log.info("Issue with IssueId = " + issueId + " has been created");
 
 
         if (response.getStatus() != 201) {
+            log.error("Failed : HTTP error code : " + response.getStatus());
             throw new RuntimeException("Failed : HTTP error code : "
                     + response.getStatus());
-            //ToDo add log4j
         }
 
         return issueId;
@@ -84,21 +85,19 @@ public class FeatureRequestOps {
         String requestPayload = mapper.writeValueAsString(addIssueToBoardPayload)
                 .replace("\"" + issueaId + "\"", " " + issueaId);
 
-        //ToDo replace with log4j
-        System.out.println("Request: " + requestPayload);
+        log.info("Request: " + requestPayload);
 
         ClientResponse response = webResource
                 .header("Accept", "application/vnd.github.inertia-preview+json")
                 .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
                 .post(ClientResponse.class, requestPayload);
 
-        //ToDo replace with log4j
-        System.out.println("Response " + response.getEntity(String.class));
+        log.info("Response " + response.getEntity(String.class));
 
         if (response.getStatus() != 201) {
+            log.error("Failed : HTTP error code : " + response.getStatus());
             throw new RuntimeException("Failed : HTTP error code : "
                     + response.getStatus());
-            //ToDo add log4j
         }
     }
 
