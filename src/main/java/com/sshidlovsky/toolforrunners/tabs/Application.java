@@ -9,6 +9,13 @@ import java.awt.event.*;
 
 public class Application extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    final JButton button4;
+    private JLabel tabStatusLabel;
+    private KeyListener listener;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -21,13 +28,13 @@ public class Application extends JPanel {
     public Application(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         //Configure visual settings of Button1
-        final JButton button1 = new JButton("Restart With Cleared Appdata Programdata Restrt Service [1]");
+        button1 = new JButton("Restart With Cleared Appdata Programdata Restrt Service [1]");
         button1.setFont(font);
         button1.setSize(313, 110);
         add(button1);
 
         //Configure visual setting of Button2
-        final JButton button2 = new JButton("Restart With Cleared Appdata Programdata Restart Service With BackUp [2]");
+        button2 = new JButton("Restart With Cleared Appdata Programdata Restart Service With BackUp [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("");
@@ -35,7 +42,7 @@ public class Application extends JPanel {
         add(button2);
 
         //Configure visual settings of Button3
-        final JButton button3 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restrt Service [3]");
+        button3 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restrt Service [3]");
         button3.setFont(font);
         button3.setVisible(true);
         button3.setToolTipText("");
@@ -43,7 +50,7 @@ public class Application extends JPanel {
         add(button3);
 
         //Configure visual setting of Button4
-        final JButton button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restart Service With BackUp [4]");
+        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restart Service With BackUp [4]");
         button4.setFont(font);
         button4.setVisible(true);
         button4.setToolTipText("");
@@ -118,8 +125,8 @@ public class Application extends JPanel {
             }
         });
 
-        //Add KeyListener for APPDATAandLOGS  BUTTONS clicking emulation by pressing NumPad buttons
-        KeyListener listener = new KeyAdapter() {
+        //Add KeyListener to tab
+        listener = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -143,7 +150,9 @@ public class Application extends JPanel {
         button2.addKeyListener(listener);
         button3.addKeyListener(listener);
         button4.addKeyListener(listener);
-        add(statusLabel[1]);
-        this.addKeyListener(listener);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[1];
+        add(tabStatusLabel);
     }
 }
