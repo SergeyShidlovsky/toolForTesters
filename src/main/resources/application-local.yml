@@ -1,0 +1,18 @@
+quantityOfTabs: 1
+tabs:
+  services:
+    name: Services
+    quantitiesOfButtons: 6
+    buttons:
+      buttonOne:
+        name: Open Services
+        tooltip: tooltipText
+        scriptLink: defineLinkOnscripts
+        scriptTimeExecution: 1
+        showTerminalWindow: false
+      buttonTwo:
+        name: Start Integration Service
+        tooltip: tooltipText
+        scriptLink: defineLinkOnscripts
+        scriptTimeExecution: 1
+        showTerminalWindow: false
