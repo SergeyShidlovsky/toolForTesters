@@ -9,6 +9,12 @@ import java.awt.event.*;
 
 public class Network extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    private JLabel tabStatusLabel;
+    private KeyListener listener6;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -20,21 +26,21 @@ public class Network extends JPanel {
 
     public Network(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("DisableNetworkAdapter [1]");
+        button1 = new JButton("DisableNetworkAdapter [1]");
         button1.setFont(font);
         button1.setVisible(true);
         button1.setToolTipText("Disables active network adapter");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("EnableNetworkAdapter [2]");
+        button2 = new JButton("EnableNetworkAdapter [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("Enables active network adapter");
         button2.setSize(313, 110);
         add(button2);
 
-        final JButton button3 = new JButton("OpenNetworkAdapter [3]");
+        button3 = new JButton("OpenNetworkAdapter [3]");
         button3.setFont(font);
         button3.setVisible(true);
         button3.setToolTipText("Opens network adapter settings");
@@ -87,7 +93,7 @@ public class Network extends JPanel {
         });
 
         //Add KeyListener for Button1 press emulation by pressing Num1 button
-        KeyListener listener6 = new KeyAdapter() {
+        listener6 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -104,10 +110,13 @@ public class Network extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener6);
         button2.addKeyListener(listener6);
         button3.addKeyListener(listener6);
-        add(statusLabel[6]);
-        this.addKeyListener(listener6);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[6];
+        add(tabStatusLabel);
     }
 }
