@@ -9,6 +9,14 @@ import java.awt.event.*;
 
 public class Dumps extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    final JButton button4;
+    final JButton button5;
+    private JLabel tabStatusLabel;
+    private KeyListener listener2;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -18,115 +26,56 @@ public class Dumps extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Dumps(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("Do Not Attach Last CUE Dump [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setSize(313, 110);
-        add(button1);
+        //Create list of buttons
+        button1 = new JButton("Do Not Attach Last CUE Dump [1] ");
+        button2 = new JButton("Get Last CUE Dump ZIP [2] ");
+        button3 = new JButton("Get Manual CUE Dump ZIP [3] ");
+        button4 = new JButton("Get Memory Dump [4] ");
+        button5 = new JButton("Open Dump Folder [5] ");
 
-        final JButton button2 = new JButton("Get Last CUE Dump ZIP [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setSize(313, 110);
-        add(button2);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Do Not Attach Last CUE Dump", font);
+        addButtonWithPreferencesToTab(button2, "Get Last CUE Dump ZIP", font);
+        addButtonWithPreferencesToTab(button3, "Get Manual CUE Dump ZIP", font);
+        addButtonWithPreferencesToTab(button4, "Get Memory Dump", font);
+        addButtonWithPreferencesToTab(button5, "Open Dump Folder", font);
 
-        final JButton button3 = new JButton("Get Manual CUE Dump ZIP [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setSize(313, 110);
-        add(button3);
+        //Add ActionListeners to all Buttons
+        addActionListenerToButton(button1, LinksDumps.DO_NOT_ATTACH_GET_LAST_CUE_DUMP.getValue(), timer, tm, 2);
+        addActionListenerToButton(button2, LinksDumps.GET_LAST_CUE_DUMP_ZIP.getValue(), timer, tm, 2);
+        addActionListenerToButton(button3, LinksDumps.GET_MANUAL_CUE_DUMP_ZIP.getValue(), timer, tm, 2);
+        addActionListenerToButton(button4, LinksDumps.GET_MEMORY_DUMP.getValue(), timer, tm, 2);
+        addActionListenerToButton(button5, LinksDumps.OPEN_DUMP_FOLDER.getValue(), timer, tm, 2);
 
-        final JButton button4 = new JButton("Get Memory Dump [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setSize(313, 110);
-        add(button4);
-
-        final JButton button5 = new JButton("Open Dump Folder [5]");
-        button5.setFont(font);
-        button5.setVisible(true);
-        button5.setSize(313, 110);
-        add(button5);
-
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksDumps.DO_NOT_ATTACH_GET_LAST_CUE_DUMP.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button2 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_LAST_CUE_DUMP_ZIP.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_MANUAL_CUE_DUMP_ZIP.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button4
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec(LinksDumps.GET_MEMORY_DUMP.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button4
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button5) {
-                    try {
-                        Runtime.getRuntime().exec(LinksDumps.OPEN_DUMP_FOLDER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add KeyListener for Buttons press emulation by pressing Num1 button
-        KeyListener listener2 = new KeyAdapter() {
+        //Add KeyListener for Buttons press emulation
+        listener2 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -149,13 +98,15 @@ public class Dumps extends JPanel {
             }
         };
 
-        //Add key Listeners to All buttons
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener2);
         button2.addKeyListener(listener2);
         button3.addKeyListener(listener2);
         button4.addKeyListener(listener2);
         button5.addKeyListener(listener2);
-        add(statusLabel[2]);
-        this.addKeyListener(listener2);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[2];
+        add(tabStatusLabel);
     }
 }
