@@ -9,6 +9,12 @@ import java.awt.event.*;
 
 public class Registry extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    private JLabel tabStatusLabel;
+    private KeyListener listener7;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
@@ -17,75 +23,50 @@ public class Registry extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Registry(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("OpenRegistryEditor [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Opens Registry Editor");
-        button1.setSize(313, 110);
-        add(button1);
+        //Create list of buttons
+        button1 = new JButton("OpenRegistryEditor [1]");
+        button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
+        button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
 
-        final JButton button2 = new JButton("OpenRegistryEditorClinkPIDs [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Open Registry Editor Clink PIDs");
-        button2.setSize(313, 110);
-        add(button2);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Opens Registry Editor", font);
+        addButtonWithPreferencesToTab(button2,"Open Registry Editor Clink PIDs", font);
+        addButtonWithPreferencesToTab(button2,"Open Registry Editor Error Reporting", font);
 
-        final JButton button3 = new JButton("OpenRegistryEditorErrorReporting [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Open Registry Editor Error Reporting");
-        button3.setSize(313, 110);
-        add(button3);
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners to all Buttons
+        addActionListenerToButton(button1, LinkRegistry.OPEN_REGISTRY_EDITOR.getValue(),timer,tm,2);
+        addActionListenerToButton(button2, LinkRegistry.OPEN_REGISTRY_EDITOR_CLINK_PIDS.getValue(), timer, tm, 2);
+        addActionListenerToButton(button3, LinkRegistry.OPEN_REGISTRY_EDITOR_ERROR_REPORTING.getValue(), timer, tm, 2);
 
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR_CLINK_PIDS.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinkRegistry.OPEN_REGISTRY_EDITOR_ERROR_REPORTING.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        KeyListener listener7 = new KeyAdapter() {
+        //Add KeyListener to tab
+        listener7 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -102,10 +83,13 @@ public class Registry extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener7);
         button2.addKeyListener(listener7);
         button3.addKeyListener(listener7);
-        add(statusLabel[7]);
-        this.addKeyListener(listener7);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[7];
+        add(tabStatusLabel);
     }
 }
