@@ -51,7 +51,8 @@ public class Application extends JPanel {
         add(button1);
 
         //Configure visual setting of Button2
-        button2 = new JButton("Restart With Cleared Appdata Programdata Restart Service With BackUp [2]");
+        button2 = new JButton("Restart With Cleared Appdata Programdata " +
+                "Restart Service With BackUp [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("");
@@ -59,7 +60,8 @@ public class Application extends JPanel {
         add(button2);
 
         //Configure visual settings of Button3
-        button3 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restrt Service [3]");
+        button3 = new JButton("Restart With Debug Logging And Cleared " +
+                "Appdata Programdata Restrt Service [3]");
         button3.setFont(font);
         button3.setVisible(true);
         button3.setToolTipText("");
@@ -67,7 +69,8 @@ public class Application extends JPanel {
         add(button3);
 
         //Configure visual setting of Button4
-        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restart Service With BackUp [4]");
+        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata " +
+                "Restart Service With BackUp [4]");
         button4.setFont(font);
         button4.setVisible(true);
         button4.setToolTipText("");
