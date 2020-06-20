@@ -24,6 +24,23 @@ public class Network extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
     public Network(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         button1 = new JButton("DisableNetworkAdapter [1]");
@@ -47,53 +64,13 @@ public class Network extends JPanel {
         button3.setSize(313, 110);
         add(button3);
 
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners to all buttons
+        addActionListenerToButton(button1, LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue(), timer, tm, 10);
+        addActionListenerToButton(button2, LinksNetwork.ENABLE_NETWORK_ADAPTER.getValue(), timer, tm, 10);
+        addActionListenerToButton(button3, LinksNetwork.OPEN_NETWORK_ADAPTER.getValue(), timer, tm, 2);
 
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.ENABLE_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.OPEN_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        listener6 = new KeyAdapter() {
+        //Add KeyListener for all Buttons' press emulation
+        KeyListener listener6 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
