@@ -13,26 +13,28 @@ import javax.swing.*;
 
 public class TestFrame extends JFrame {
 
-    //Set quantity of tabs Here
     int quantity = 9;
-
-    private JLabel[] statusLabel = new JLabel[quantity]; //Creating array of labels
     private Timer timer;
+    protected Font font;
+    protected Font labelFont;
+    protected JLabel[] statusLabel;
+    protected JTabbedPane tabbedPane;
 
     public TestFrame() {
 
         super("Tool For QA Engineers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Font of Buttons
-        final Font font = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 10);
-        //Font of Label
-        final Font labelFont = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 20);
-        JTabbedPane tabbedPane = new JTabbedPane();
+        //Font of Buttons and Labels
+        font = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 10);
+        labelFont  = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 20);
+
+        //Creating tabbed pane with font
+        tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
 
-        //Adding Status Labels  on each  Tab that is
-        //running down time of scripts execution
+        //Creating an array of statusLabels
+        statusLabel = new JLabel[quantity];
         for (int i = 0; i < quantity; i++) {
             statusLabel[i] = new JLabel("                      Start Script                      ");
             statusLabel[i].setFont(labelFont);
@@ -46,50 +48,22 @@ public class TestFrame extends JFrame {
         final TimerTick tm = new TimerTick();
         tm.setStatusLabel(statusLabel);
 
-        //Adding Common timer to our tool, by creation
-        //an object of Timer Tick Class
-        final Timer timer = new Timer(1000, tm);
+        //Adding Common timer to our tool,
+        timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
-        class Application1 extends JPanel {
+        //Adding all tabs to tabbed pane
+        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Execute", new Execute(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabel));
+        tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabel));
 
-            //Adding method for reset timer with new value
-            // after buttons below have been pressed
-            public void timeReset(int seconds) {
-
-                timer.stop();             //Stopping previous timer before execution of current script
-                tm.setCountdown(seconds); //Setting time of  Script execution
-                timer.start();            //Starting timer after script initiation
-            }
-        }
-
-        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Execute", new Execute(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabel) {
-        });
-
-        tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabel) {
-        });
-
+        //Adding tabbed pane to jFrame and Setting preferences
         setPreferredSize(new Dimension(645, 215));
         pack();
         setLocationRelativeTo(null);
