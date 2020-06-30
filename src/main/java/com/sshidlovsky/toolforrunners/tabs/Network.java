@@ -41,28 +41,24 @@ public class Network extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Network(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         button1 = new JButton("DisableNetworkAdapter [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Disables active network adapter");
-        button1.setSize(313, 110);
-        add(button1);
-
         button2 = new JButton("EnableNetworkAdapter [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Enables active network adapter");
-        button2.setSize(313, 110);
-        add(button2);
-
         button3 = new JButton("OpenNetworkAdapter [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Opens network adapter settings");
-        button3.setSize(313, 110);
-        add(button3);
+
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Disables active network adapter", font);
+        addButtonWithPreferencesToTab(button2,"Enables active network adapter", font);
+        addButtonWithPreferencesToTab(button3,"Opens network adapter settings", font);
 
         //Add ActionListeners to all buttons
         addActionListenerToButton(button1, LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue(), timer, tm, 10);
@@ -70,7 +66,7 @@ public class Network extends JPanel {
         addActionListenerToButton(button3, LinksNetwork.OPEN_NETWORK_ADAPTER.getValue(), timer, tm, 2);
 
         //Add KeyListener for all Buttons' press emulation
-        KeyListener listener6 = new KeyAdapter() {
+        listener6 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
