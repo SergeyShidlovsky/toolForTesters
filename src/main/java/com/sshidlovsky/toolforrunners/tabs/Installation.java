@@ -9,6 +9,11 @@ import java.awt.event.*;
 
 public class Installation extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    private JLabel tabStatusLabel;
+    private KeyListener listener4;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -37,14 +42,15 @@ public class Installation extends JPanel {
 
     public Installation(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("GetInstallLog [1]");
+        //Create list of buttons
+        button1 = new JButton("GetInstallLog [1]");
         button1.setFont(font);
         button1.setVisible(true);
         button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
         button1.setSize(313, 110);
         add(button1);
 
-        final JButton button2 = new JButton("GetOEMFiles [2]");
+        button2 = new JButton("GetOEMFiles [2]");
         button2.setFont(font);
         button2.setVisible(true);
         button2.setToolTipText("Copy OEM files to Desktop");
@@ -56,7 +62,7 @@ public class Installation extends JPanel {
         addActionListenerToButton(button2, LinksInstallation.GET_INSTALL_LOG.getValue(), timer, tm, 2);
 
         //Add KeyListener for Buttons' press emulation
-        KeyListener listener4 = new KeyAdapter() {
+        listener4 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -74,7 +80,9 @@ public class Installation extends JPanel {
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener4);
         button2.addKeyListener(listener4);
-        add(statusLabel[4]);
-        this.addKeyListener(listener4);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[4];
+        add(tabStatusLabel);
     }
 }
