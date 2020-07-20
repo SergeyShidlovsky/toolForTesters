@@ -9,6 +9,12 @@ import java.awt.event.*;
 
 public class Network extends JPanel {
 
+    final JButton button1;
+    final JButton button2;
+    final JButton button3;
+    private JLabel tabStatusLabel;
+    private KeyListener listener6;
+
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
@@ -18,76 +24,49 @@ public class Network extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
+    }
+
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Network(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        final JButton button1 = new JButton("DisableNetworkAdapter [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Disables active network adapter");
-        button1.setSize(313, 110);
-        add(button1);
+        button1 = new JButton("DisableNetworkAdapter [1]");
+        button2 = new JButton("EnableNetworkAdapter [2]");
+        button3 = new JButton("OpenNetworkAdapter [3]");
 
-        final JButton button2 = new JButton("EnableNetworkAdapter [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Enables active network adapter");
-        button2.setSize(313, 110);
-        add(button2);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Disables active network adapter", font);
+        addButtonWithPreferencesToTab(button2,"Enables active network adapter", font);
+        addButtonWithPreferencesToTab(button3,"Opens network adapter settings", font);
 
-        final JButton button3 = new JButton("OpenNetworkAdapter [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Opens network adapter settings");
-        button3.setSize(313, 110);
-        add(button3);
+        //Add ActionListeners to all buttons
+        addActionListenerToButton(button1, LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue(), timer, tm, 10);
+        addActionListenerToButton(button2, LinksNetwork.ENABLE_NETWORK_ADAPTER.getValue(), timer, tm, 10);
+        addActionListenerToButton(button3, LinksNetwork.OPEN_NETWORK_ADAPTER.getValue(), timer, tm, 2);
 
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.DISABLE_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button2
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.ENABLE_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add ActionListeners of Button3
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksNetwork.OPEN_NETWORK_ADAPTER.getValue());
-                        timeReset(2, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        KeyListener listener6 = new KeyAdapter() {
+        //Add KeyListener for all Buttons' press emulation
+        listener6 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -104,10 +83,13 @@ public class Network extends JPanel {
             }
         };
 
+        //Add key Listeners to all Buttons
         button1.addKeyListener(listener6);
         button2.addKeyListener(listener6);
         button3.addKeyListener(listener6);
-        add(statusLabel[6]);
-        this.addKeyListener(listener6);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[6];
+        add(tabStatusLabel);
     }
 }
