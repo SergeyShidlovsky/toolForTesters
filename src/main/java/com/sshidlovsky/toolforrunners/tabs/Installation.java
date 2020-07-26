@@ -9,8 +9,8 @@ import java.awt.event.*;
 
 public class Installation extends JPanel {
 
-    final JButton button1;
-    final JButton button2;
+    private JButton button1;
+    private JButton button2;
     private JLabel tabStatusLabel;
     private KeyListener listener4;
 
@@ -40,22 +40,23 @@ public class Installation extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Installation(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         //Create list of buttons
         button1 = new JButton("GetInstallLog [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Copy setuoapi.dev.log to Desktop");
-        button1.setSize(313, 110);
-        add(button1);
-
         button2 = new JButton("GetOEMFiles [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Copy OEM files to Desktop");
-        button2.setSize(313, 110);
-        add(button2);
+
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Copy setuoapi.dev.log to Desktop", font);
+        addButtonWithPreferencesToTab(button2, "Copy OEM files to Desktop", font);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksInstallation.GET_OEM_FILES.getValue(), timer, tm, 2);
