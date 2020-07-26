@@ -11,6 +11,8 @@ public class Installation extends JPanel {
 
     private JButton button1;
     private JButton button2;
+    private JLabel tabStatusLabel;
+    private KeyListener listener4;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -61,7 +63,7 @@ public class Installation extends JPanel {
         addActionListenerToButton(button2, LinksInstallation.GET_INSTALL_LOG.getValue(), timer, tm, 2);
 
         //Add KeyListener for Buttons' press emulation
-        KeyListener listener4 = new KeyAdapter() {
+        listener4 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
@@ -79,7 +81,9 @@ public class Installation extends JPanel {
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener4);
         button2.addKeyListener(listener4);
-        add(statusLabel[4]);
-        this.addKeyListener(listener4);
+
+        //Add StatusLabel to tab
+        tabStatusLabel = statusLabel[4];
+        add(tabStatusLabel);
     }
 }
