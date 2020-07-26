@@ -57,6 +57,7 @@ public class FeatureRequestOps {
                 .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
                 .post(ClientResponse.class, requestBody);
 
+        //toDo: Implement ResponceEntity class to keep result of createIssue request
         String responseBody = response.getEntity(String.class);
         log.info("Response " + responseBody);
 
@@ -92,6 +93,7 @@ public class FeatureRequestOps {
                 .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
                 .post(ClientResponse.class, requestPayload);
 
+        //toDo: Implement ResponceEntity class to keep result of assignIssueToProject request
         log.info("Response " + response.getEntity(String.class));
 
         if (response.getStatus() != 201) {
@@ -101,7 +103,7 @@ public class FeatureRequestOps {
         }
     }
 
-    //ToDo Remove this code when UI will be ready
+    //ToDo https://github.com/SergeyShidlovsky/toolForTesters/issues/168
     public static void main(String[] args) throws IOException {
         FeatureRequestOps z = new FeatureRequestOps();
         int issueId = z.createIssue();
