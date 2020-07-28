@@ -22,6 +22,8 @@ public class FeatureRequestOps {
 
     private Client client;
     private ObjectMapper mapper;
+    private WebResource webResource;
+    private ClientResponse response;
     private MultivaluedMap<String, String> labels;
     private Map<String, String> titleAndDescription;
     private Map<String, String> addIssueToBoardPayload;
@@ -36,72 +38,97 @@ public class FeatureRequestOps {
     }
 
     public int createIssue() throws IOException, RuntimeException {
+        //Adding webresource by URL
+        webResource = createWebResource(LinksFeatureRequest.ADD_NEW_ISSUE_URL.getValue());
 
-        WebResource webResource = client
-                .resource(UriBuilder.fromUri(LinksFeatureRequest.REPOSITORY_URL.getValue() +
-                        LinksFeatureRequest.ADD_NEW_ISSUE_URL.getValue()).build());
-
+        //Adding data to maps that will be used for request payload creation
         titleAndDescription.put("title", LinksFeatureRequest.TITLE.getValue());
         titleAndDescription.put("body", LinksFeatureRequest.DESCRIPTION.getValue());
         labels.add("labels", LinksFeatureRequest.LABEL.getValue());
 
+        //Creating string with request payload
         String firstNode = mapper.writeValueAsString(titleAndDescription);
         String secondNode = mapper.writeValueAsString(labels);
         String requestBody = firstNode.substring(0, firstNode.length() - 1) + "," + secondNode.substring(1);
 
-        log.info( "Request " + requestBody);
+        log.info("Request " + requestBody);
 
-        ClientResponse response = webResource
-                .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
-                .header("Content-Type", "application/json;charset=UTF-8")
-                .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
-                .post(ClientResponse.class, requestBody);
+        //Creating an issue using POST request
+        response = response = doPostRequest(webResource, requestBody);
 
-        String responseBody = response.getEntity(String.class);
-        log.info("Response " + responseBody);
+        //Extracting issueId from response payload if there are no errors
+        if (response.getStatus() == 201) {
+            //toDo: Implement ResponseEntity class to keep result of createIssue request
+            String responseBody = response.getEntity(String.class);
+            log.info("Response " + responseBody);
 
-        int firstIndexOfId = responseBody.indexOf("\",\"id\":" ) + 7;
-        int lastIndexOfId = responseBody.indexOf(",\"node_id\":\"");
-        int issueId = Integer.parseInt(responseBody.substring(firstIndexOfId, lastIndexOfId));
-        log.info("Issue with IssueId = " + issueId + " has been created");
+            //Parsing the response to get issueId
+            int firstIndexOfId = responseBody.indexOf("\",\"id\":") + 7;
+            int lastIndexOfId = responseBody.indexOf(",\"node_id\":\"");
+            int issueId = Integer.parseInt(responseBody.substring(firstIndexOfId, lastIndexOfId));
+            log.info("Issue with IssueId = " + issueId + " has been created");
 
+            return issueId;
+        } else {
+            //Handling an error if issue wasn't created
+            handleErrorFromResponse(response);
 
-        if (response.getStatus() != 201) {
-            log.error("Failed : HTTP error code : " + response.getStatus());
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatus());
+            return 0;
         }
-
-        return issueId;
     }
 
-    public void assignIssueToProject(int issueaId) throws IOException {
-        WebResource webResource = client
-                .resource(UriBuilder.fromUri(LinksFeatureRequest.REPOSITORY_URL.getValue() +
-                        LinksFeatureRequest.ADD_ISSUE_TO_BOARD_URL.getValue()).build());
+    public void assignIssueToProject(int issueId) throws IOException {
+        //Adding webresource by URL
+        webResource = createWebResource(LinksFeatureRequest.ADD_ISSUE_TO_BOARD_URL.getValue());
 
-        addIssueToBoardPayload.put("content_id", Integer.toString(issueaId));
+        //Adding data to maps that will be used for request payload creation
+        addIssueToBoardPayload.put("content_id", Integer.toString(issueId));
         addIssueToBoardPayload.put("content_type", LinksFeatureRequest.CONTENT_TYPE.getValue());
         String requestPayload = mapper.writeValueAsString(addIssueToBoardPayload)
-                .replace("\"" + issueaId + "\"", " " + issueaId);
+                .replace("\"" + issueId + "\"", " " + issueId);
 
         log.info("Request: " + requestPayload);
 
-        ClientResponse response = webResource
+        //Assigning an issue to the board using POST request
+        response = doPostRequest(webResource, requestPayload);
+
+        //toDo: Implement ResponseEntity class to keep result of assignIssueToProject request
+        log.info("Response " + response.getEntity(String.class));
+
+        //toDo Add code block of successful issue assignment
+        //Handling an error if issue wasn't assigned
+        handleErrorFromResponse(response);
+    }
+
+    private void handleErrorFromResponse(ClientResponse response) {
+        if (response.getStatus() != 201) {
+            log.error("Failed : HTTP error code : " + response.getStatus());
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus() + "\n" + response.getEntity(String.class));
+        }
+    }
+
+    private WebResource createWebResource(String resourceLink) {
+        webResource = client
+                .resource(UriBuilder.fromUri(LinksFeatureRequest.REPOSITORY_URL.getValue() +
+                        resourceLink).build());
+
+        return webResource;
+    }
+
+    private ClientResponse doPostRequest(WebResource webResource, String requestPayload) {
+        response = webResource
+                .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
+                .header("Content-Type", "application/json;charset=UTF-8")
                 .header("Accept", "application/vnd.github.inertia-preview+json")
                 .header("Authorization", "token " + LinksFeatureRequest.ACCESS_TOKEN.getValue())
                 .post(ClientResponse.class, requestPayload);
 
-        log.info("Response " + response.getEntity(String.class));
-
-        if (response.getStatus() != 201) {
-            log.error("Failed : HTTP error code : " + response.getStatus());
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatus());
-        }
+        return response;
     }
 
-    //ToDo Remove this code when UI will be ready
+
+    //ToDo https://github.com/SergeyShidlovsky/toolForTesters/issues/168
     public static void main(String[] args) throws IOException {
         FeatureRequestOps z = new FeatureRequestOps();
         int issueId = z.createIssue();
