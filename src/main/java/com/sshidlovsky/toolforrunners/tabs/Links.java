@@ -50,90 +50,43 @@ public class Links extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+
+        //Create list of buttons
         button1 = new JButton("Firmware [1]");
-        button1.setFont(font);
-        button1.setVisible(true);
-        button1.setToolTipText("Open page with FW images");
-        button1.setSize(313, 110);
-        add(button1);
-
         button2 = new JButton("Builder [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("Open page with builder");
-        button2.setSize(313, 110);
-        add(button2);
-
         button3 = new JButton("Builds [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("Open page with builds ");
-        button3.setSize(313, 110);
-        add(button3);
-
         button4 = new JButton("DeviceDoc [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setToolTipText("Open device documents page");
-        button4.setSize(313, 110);
-        add(button4);
-
         button5 = new JButton(" DocumentationCUE 2.0 [5] ");
-        button5.setFont(font);
-        button5.setVisible(true);
-        button5.setToolTipText("Open CUE 2.0 documentation page");
-        button5.setSize(313, 110);
-        add(button5);
-
         button6 = new JButton("DocumentationCUE 3.0 [6]");
-        button6.setFont(font);
-        button6.setVisible(true);
-        button6.setToolTipText("Open CUE 3.0 documentation page");
-        button6.setSize(313, 110);
-        add(button6);
-
         button7 = new JButton(" Phabricator [7] ");
-        button7.setFont(font);
-        button7.setVisible(true);
-        button7.setToolTipText("Open Phabricator page");
-        button7.setSize(313, 110);
-        add(button7);
-
         button8 = new JButton("PMArea [8]");
-        button8.setFont(font);
-        button8.setVisible(true);
-        button8.setToolTipText("Open PMArea");
-        button8.setSize(313, 110);
-        add(button8);
-
         button9 = new JButton(" Report [9] ");
-        button9.setFont(font);
-        button9.setVisible(true);
-        button9.setToolTipText("Open report page");
-        button9.setSize(313, 110);
-        add(button9);
-
         button10 = new JButton("  Squash [0]   ");
-        button10.setFont(font);
-        button10.setVisible(true);
-        button10.setToolTipText("Open squash page");
-        button10.setSize(313, 110);
-        add(button10);
-
         button11 = new JButton(" Test machines [-]   ");
-        button11.setFont(font);
-        button11.setVisible(true);
-        button11.setToolTipText("Open page with stend machines list");
-        button11.setSize(313, 110);
-        add(button11);
-
         button12 = new JButton("  Wiki QA [=]   ");
-        button12.setFont(font);
-        button12.setVisible(true);
-        button12.setToolTipText("Open QA Section of Project Wiki");
-        button12.setSize(313, 110);
-        add(button12);
+
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1,"Open page with FW images", font);
+        addButtonWithPreferencesToTab(button2,"Open page with builder", font);
+        addButtonWithPreferencesToTab(button3,"Open page with builds", font);
+        addButtonWithPreferencesToTab(button4,"Open device documents page", font);
+        addButtonWithPreferencesToTab(button5,"Open CUE 2.0 documentation page", font);
+        addButtonWithPreferencesToTab(button6,"Open CUE 3.0 documentation page", font);
+        addButtonWithPreferencesToTab(button7,"Open Phabricator page", font);
+        addButtonWithPreferencesToTab(button8,"Open PMArea", font);
+        addButtonWithPreferencesToTab(button9,"Open report page", font);
+        addButtonWithPreferencesToTab(button10,"Open squash page", font);
+        addButtonWithPreferencesToTab(button11,"Open page with stend machines list", font);
+        addButtonWithPreferencesToTab(button12,"Open QA Section of Project Wiki", font);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksLinks.FIRMWARE.getValue(), timer, tm, 2);
