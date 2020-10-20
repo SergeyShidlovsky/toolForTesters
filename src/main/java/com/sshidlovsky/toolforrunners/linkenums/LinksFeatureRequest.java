@@ -10,7 +10,8 @@ public enum LinksFeatureRequest {
     ADD_NEW_ISSUE_URL("/repos/SergeyShidlovsky/toolForRunners/issues"),
     ADD_ISSUE_TO_BOARD_URL("/projects/columns/8414334/cards"),
     ASSIGN_ISSUE_TO_USER("/repos/SergeyShidlovsky/toolForRunners/issues//assignees"),
-    ACCESS_TOKEN("fcf56238e0135d0cb4f5720671395b69f1080528"),
+    UPDATE_ISSUE("/repos/SergeyShidlovsky/toolForRunners/issues/"),
+    ACCESS_TOKEN("78b42057518f1a8dde9a0248225a2c6820d360dc"),
     TITLE("Assign an issue on board"),
     DESCRIPTION("Created by tooolforrunners And Assigned to a board in " +
             Calendar.getInstance().getTimeInMillis()),
