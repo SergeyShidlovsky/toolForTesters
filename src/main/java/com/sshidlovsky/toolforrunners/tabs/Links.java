@@ -6,6 +6,8 @@ import com.sshidlovsky.toolforrunners.runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Links extends JPanel {
 
@@ -23,6 +25,7 @@ public class Links extends JPanel {
     final JButton button12;
     private JLabel tabStatusLabel;
     private KeyListener listener5;
+    private Map<Integer, JButton> buttonAssignment;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -50,12 +53,28 @@ public class Links extends JPanel {
         });
     }
 
-    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font, int keyCode) {
         button.setFont(font);
         button.setVisible(true);
         button.setToolTipText(tooltip);
         button.setSize(313, 110);
         add(button);
+        buttonAssignment.put(keyCode, button);
+    }
+
+    private KeyListener addKeyListenerToTab(){
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Integer currentAssignmentCode;
+                for (int i = 0; i < buttonAssignment.values().size(); i++) {
+                    currentAssignmentCode = (Integer) buttonAssignment.keySet().toArray()[i];
+                    if (e.getKeyCode() == currentAssignmentCode) {
+                        buttonAssignment.get(currentAssignmentCode).doClick();
+                    }
+                }
+            }
+        };
     }
 
     public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
@@ -74,19 +93,22 @@ public class Links extends JPanel {
         button11 = new JButton(" Test machines [-]   ");
         button12 = new JButton("  Wiki QA [=]   ");
 
+        //Add empty Map of buttons assignment
+        buttonAssignment = new HashMap<Integer, JButton>();
+
         //Add all buttons to tab
-        addButtonWithPreferencesToTab(button1,"Open page with FW images", font);
-        addButtonWithPreferencesToTab(button2,"Open page with builder", font);
-        addButtonWithPreferencesToTab(button3,"Open page with builds", font);
-        addButtonWithPreferencesToTab(button4,"Open device documents page", font);
-        addButtonWithPreferencesToTab(button5,"Open CUE 2.0 documentation page", font);
-        addButtonWithPreferencesToTab(button6,"Open CUE 3.0 documentation page", font);
-        addButtonWithPreferencesToTab(button7,"Open Phabricator page", font);
-        addButtonWithPreferencesToTab(button8,"Open PMArea", font);
-        addButtonWithPreferencesToTab(button9,"Open report page", font);
-        addButtonWithPreferencesToTab(button10,"Open squash page", font);
-        addButtonWithPreferencesToTab(button11,"Open page with stend machines list", font);
-        addButtonWithPreferencesToTab(button12,"Open QA Section of Project Wiki", font);
+        addButtonWithPreferencesToTab(button1,"Open page with FW images", font, KeyEvent.VK_1);
+        addButtonWithPreferencesToTab(button2,"Open page with builder", font, KeyEvent.VK_2);
+        addButtonWithPreferencesToTab(button3,"Open page with builds", font, KeyEvent.VK_3);
+        addButtonWithPreferencesToTab(button4,"Open device documents page", font, KeyEvent.VK_4);
+        addButtonWithPreferencesToTab(button5,"Open CUE 2.0 documentation page", font, KeyEvent.VK_5);
+        addButtonWithPreferencesToTab(button6,"Open CUE 3.0 documentation page", font, KeyEvent.VK_6);
+        addButtonWithPreferencesToTab(button7,"Open Phabricator page", font, KeyEvent.VK_7);
+        addButtonWithPreferencesToTab(button8,"Open PMArea", font, KeyEvent.VK_8);
+        addButtonWithPreferencesToTab(button9,"Open report page", font, KeyEvent.VK_9);
+        addButtonWithPreferencesToTab(button10,"Open squash page", font, KeyEvent.VK_0);
+        addButtonWithPreferencesToTab(button11,"Open page with stend machines list", font, KeyEvent.VK_MINUS);
+        addButtonWithPreferencesToTab(button12,"Open QA Section of Project Wiki", font, KeyEvent.VK_EQUALS);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksLinks.FIRMWARE.getValue(), timer, tm, 2);
@@ -102,50 +124,8 @@ public class Links extends JPanel {
         addActionListenerToButton(button11, LinksLinks.TEST_MACHINES.getValue(), timer, tm, 2);
         addActionListenerToButton(button12, LinksLinks.WIKI_QA.getValue(), timer, tm, 2);
 
-        //Add KeyListener for Button press
-        listener5 = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_1:
-                        button1.doClick();
-                        break;
-                    case KeyEvent.VK_2:
-                        button2.doClick();
-                        break;
-                    case KeyEvent.VK_3:
-                        button3.doClick();
-                        break;
-                    case KeyEvent.VK_4:
-                        button4.doClick();
-                        break;
-                    case KeyEvent.VK_5:
-                        button5.doClick();
-                        break;
-                    case KeyEvent.VK_6:
-                        button6.doClick();
-                        break;
-                    case KeyEvent.VK_7:
-                        button7.doClick();
-                        break;
-                    case KeyEvent.VK_8:
-                        button8.doClick();
-                        break;
-                    case KeyEvent.VK_9:
-                        button9.doClick();
-                        break;
-                    case KeyEvent.VK_0:
-                        button10.doClick();
-                        break;
-                    case KeyEvent.VK_MINUS:
-                        button11.doClick();
-                        break;
-                    case KeyEvent.VK_EQUALS:
-                        button12.doClick();
-                        break;
-                }
-            }
-        };
+        //Create tab-specific KeyListener
+        listener5 = addKeyListenerToTab();
 
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener5);
