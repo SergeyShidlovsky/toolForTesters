@@ -64,7 +64,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabel));
 
         //Adding tabbed pane to jFrame and Setting preferences
-        setPreferredSize(new Dimension(645, 215));
+        setPreferredSize(new Dimension(655, 215));
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
