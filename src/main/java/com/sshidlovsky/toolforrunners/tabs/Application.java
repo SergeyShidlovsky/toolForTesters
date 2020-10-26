@@ -42,40 +42,32 @@ public class Application extends JPanel {
         });
     }
 
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+        button.setFont(font);
+        button.setVisible(true);
+        button.setToolTipText(tooltip);
+        button.setSize(313, 110);
+        add(button);
+    }
+
     public Application(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
-        //Configure visual settings of Button1
-        button1 = new JButton("Restart With Cleared Appdata Programdata Restrt Service [1]");
-        button1.setFont(font);
-        button1.setSize(313, 110);
-        add(button1);
+        //Create list of buttons
+        button1 = new JButton("Restart With Cleared AppData ProgramData Restrt Service [1]");
+        button2 = new JButton("Restart With Cleared AppData ProgramData Restart Service With BackUp [2]");
+        button3 = new JButton("Restart With Debug Logging And Cleared AppData ProgramData Restrt Service [3]");
+        button4 = new JButton("Restart With Debug Logging And Cleared AppData ProgramData Restart Service With " +
+                "BackUp [4]");
 
-        //Configure visual setting of Button2
-        button2 = new JButton("Restart With Cleared Appdata Programdata " +
-                "Restart Service With BackUp [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("");
-        button2.setSize(313, 110);
-        add(button2);
-
-        //Configure visual settings of Button3
-        button3 = new JButton("Restart With Debug Logging And Cleared " +
-                "Appdata Programdata Restrt Service [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("");
-        button3.setSize(313, 110);
-        add(button3);
-
-        //Configure visual setting of Button4
-        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata " +
-                "Restart Service With BackUp [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setToolTipText("");
-        button4.setSize(313, 110);
-        add(button4);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Restart With Cleared AppData ProgramData Restart Service",
+                font);
+        addButtonWithPreferencesToTab(button2, "Restart With Cleared AppData ProgramData Restart Service " +
+                "With BackUp", font);
+        addButtonWithPreferencesToTab(button3, "Restart With Debug Logging And Cleared AppData ProgramData " +
+                "Restrt Service", font);
+        addButtonWithPreferencesToTab(button4, "Restart With Debug Logging And Cleared AppData ProgramData " +
+                "Restart Service With BackUp", font);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksApplication
