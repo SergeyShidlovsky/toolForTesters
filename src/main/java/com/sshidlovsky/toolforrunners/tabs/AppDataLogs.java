@@ -1,11 +1,14 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
 import com.sshidlovsky.toolforrunners.linkenums.LinksAppDataLogs;
+import com.sshidlovsky.toolforrunners.linkenums.LinksServices;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AppDataLogs extends JPanel {
 
@@ -257,6 +260,17 @@ public class AppDataLogs extends JPanel {
 
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener0);
+        button2.addKeyListener(listener0);
+        button3.addKeyListener(listener0);
+        button4.addKeyListener(listener0);
+        button5.addKeyListener(listener0);
+        button6.addKeyListener(listener0);
+        button7.addKeyListener(listener0);
+        button8.addKeyListener(listener0);
+        button9.addKeyListener(listener0);
+        button10.addKeyListener(listener0);
+        button11.addKeyListener(listener0);
+        button12.addKeyListener(listener0);
 
         //Add StatusLabel to tab
         tabStatusLabel = statusLabel[0];
