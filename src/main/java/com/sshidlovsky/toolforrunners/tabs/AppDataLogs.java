@@ -1,14 +1,11 @@
 package com.sshidlovsky.toolforrunners.tabs;
 
 import com.sshidlovsky.toolforrunners.linkenums.LinksAppDataLogs;
-import com.sshidlovsky.toolforrunners.linkenums.LinksServices;
 import com.sshidlovsky.toolforrunners.runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AppDataLogs extends JPanel {
 
@@ -32,8 +29,25 @@ public class AppDataLogs extends JPanel {
     //todo Move this method to abstract class
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
         timer.stop();             //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds); //Setting time of  Script execution
+        tm.setCountdown(seconds); //Setting time of Script execution
         timer.start();            //Starting timer after script initiation
+    }
+
+    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
+                                           final TimerTick tm, final int delay) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                //Button1 will perform next actions
+                if (ae.getSource() == button) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                        timeReset(delay, timer, tm);
+                    } catch (Exception r) {
+                        tm.showException();
+                    }
+                }
+            }
+        });
     }
 
     private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
@@ -74,176 +88,21 @@ public class AppDataLogs extends JPanel {
         addButtonWithPreferencesToTab(button11, "Open Logs", font);
         addButtonWithPreferencesToTab(button12, "Open Program Data", font);
 
-        //Add ActionListeners of Button1
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
-                if (ae.getSource() == button1) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAN_LOGS.getValue());
-                        timeReset(10, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
+        //Add ActionListeners to all buttons
+        addActionListenerToButton(button1, LinksAppDataLogs.CLEAN_LOGS.getValue(), timer, tm, 3);
+        addActionListenerToButton(button2, LinksAppDataLogs.CLEAN_PROGRAMDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button3, LinksAppDataLogs.CLEAR_APPDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button4, LinksAppDataLogs.GET_ARCIVE_APPDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button5, LinksAppDataLogs.GET_ARCHIVE_PROGRAMDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button6, LinksAppDataLogs.GET_LAST_ARHIVED_PROGRAMDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button7, LinksAppDataLogs.GET_LAST_LOG.getValue(), timer, tm, 3);
+        addActionListenerToButton(button8, LinksAppDataLogs.OPEN_APPDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button9, LinksAppDataLogs.OPEN_DEBUG_SERVICE_FOLDER.getValue(), timer, tm, 3);
+        addActionListenerToButton(button10, LinksAppDataLogs.OPEN_FOLDER_WITH_ARCHIVED_PROGRAM_APPDATA.getValue(), timer, tm, 3);
+        addActionListenerToButton(button11, LinksAppDataLogs.OPEN_LOGS.getValue(), timer, tm, 3);
+        addActionListenerToButton(button12, LinksAppDataLogs.OPEN_PROGRAM_DATA.getValue(), timer, tm, 3);
 
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button2) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAN_PROGRAMDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button3) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.CLEAR_APPDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button4) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_ARCIVE_APPDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button5) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_ARCHIVE_PROGRAMDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button6) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_LAST_ARHIVED_PROGRAMDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button7) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.GET_LAST_LOG.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button8) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_APPDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button9) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_DEBUG_SERVICE_FOLDER.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button10.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button10) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_FOLDER_WITH_ARCHIVED_PROGRAM_APPDATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button11) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_LOGS.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        button12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button12) {
-                    try {
-                        Runtime.getRuntime().exec(LinksAppDataLogs.OPEN_PROGRAM_DATA.getValue());
-                        timeReset(4, timer, tm); //Set time of Script Execution Here
-                    } catch (Exception r) {
-                        tm.showException();
-                    }
-                }
-            }
-        });
-
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
+        //Add KeyListener for all Buttons' press emulation
         listener0 = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
