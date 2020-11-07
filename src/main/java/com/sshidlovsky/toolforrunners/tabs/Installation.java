@@ -19,7 +19,7 @@ public class Installation extends JPanel {
     //todo Move this method to abstract class
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
         timer.stop();             //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds); //Setting time of  Script execution
+        tm.setCountdown(seconds); //Setting time of Script execution
         timer.start();            //Starting timer after script initiation
     }
 
