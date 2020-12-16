@@ -6,6 +6,8 @@ import com.sshidlovsky.toolforrunners.runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Dumps extends JPanel {
 
@@ -16,6 +18,7 @@ public class Dumps extends JPanel {
     final JButton button5;
     private JLabel tabStatusLabel;
     private KeyListener listener2;
+    private Map<Integer, JButton> buttonAssignment;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -43,12 +46,27 @@ public class Dumps extends JPanel {
         });
     }
 
-    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font, int keyCode) {
         button.setFont(font);
         button.setVisible(true);
         button.setToolTipText(tooltip);
         button.setSize(313, 110);
         add(button);
+    }
+
+    private KeyListener addKeyListenerToTab() {
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Integer currentAssignmentCode;
+                for (int i = 0; i < buttonAssignment.values().size(); i++) {
+                    currentAssignmentCode = (Integer) buttonAssignment.keySet().toArray()[i];
+                    if (e.getKeyCode() == currentAssignmentCode) {
+                        buttonAssignment.get(currentAssignmentCode).doClick();
+                    }
+                }
+            }
+        };
     }
 
     public Dumps(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
@@ -60,12 +78,15 @@ public class Dumps extends JPanel {
         button4 = new JButton("Get Memory Dump [4] ");
         button5 = new JButton("Open Dump Folder [5] ");
 
+        //Add empty Map of buttons assignment
+        buttonAssignment = new HashMap<Integer, JButton>();
+
         //Add all buttons to tab
-        addButtonWithPreferencesToTab(button1, "Do Not Attach Last CUE Dump", font);
-        addButtonWithPreferencesToTab(button2, "Get Last CUE Dump ZIP", font);
-        addButtonWithPreferencesToTab(button3, "Get Manual CUE Dump ZIP", font);
-        addButtonWithPreferencesToTab(button4, "Get Memory Dump", font);
-        addButtonWithPreferencesToTab(button5, "Open Dump Folder", font);
+        addButtonWithPreferencesToTab(button1, "Do Not Attach Last CUE Dump", font, KeyEvent.VK_1);
+        addButtonWithPreferencesToTab(button2, "Get Last CUE Dump ZIP", font, KeyEvent.VK_2);
+        addButtonWithPreferencesToTab(button3, "Get Manual CUE Dump ZIP", font, KeyEvent.VK_3);
+        addButtonWithPreferencesToTab(button4, "Get Memory Dump", font, KeyEvent.VK_4);
+        addButtonWithPreferencesToTab(button5, "Open Dump Folder", font, KeyEvent.VK_5);
 
         //Add ActionListeners to all Buttons
         addActionListenerToButton(button1, LinksDumps.DO_NOT_ATTACH_GET_LAST_CUE_DUMP.getValue(), timer, tm, 2);
@@ -74,29 +95,8 @@ public class Dumps extends JPanel {
         addActionListenerToButton(button4, LinksDumps.GET_MEMORY_DUMP.getValue(), timer, tm, 2);
         addActionListenerToButton(button5, LinksDumps.OPEN_DUMP_FOLDER.getValue(), timer, tm, 2);
 
-        //Add KeyListener for Buttons press emulation
-        listener2 = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_1:
-                        button1.doClick();
-                        break;
-                    case KeyEvent.VK_2:
-                        button2.doClick();
-                        break;
-                    case KeyEvent.VK_3:
-                        button3.doClick();
-                        break;
-                    case KeyEvent.VK_4:
-                        button4.doClick();
-                        break;
-                    case KeyEvent.VK_5:
-                        button5.doClick();
-                        break;
-                }
-            }
-        };
+        //Create tab-specific KeyListener
+        listener2 = addKeyListenerToTab();
 
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener2);
