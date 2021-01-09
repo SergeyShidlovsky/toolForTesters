@@ -6,6 +6,8 @@ import com.sshidlovsky.toolforrunners.runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Execute extends JPanel {
 
@@ -19,6 +21,7 @@ public class Execute extends JPanel {
     final JButton button8;
     private JLabel tabStatusLabel;
     private KeyListener listener3;
+    private Map<Integer, JButton> buttonAssignment;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
@@ -29,12 +32,13 @@ public class Execute extends JPanel {
         timer.start();            //Starting timer after script initiation
     }
 
-    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font, int keyCode) {
         button.setFont(font);
         button.setVisible(true);
         button.setToolTipText(tooltip);
         button.setSize(313, 110);
         add(button);
+        buttonAssignment.put(keyCode, button);
     }
 
     private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
@@ -54,6 +58,21 @@ public class Execute extends JPanel {
         });
     }
 
+    private KeyListener addKeyListenerToTab() {
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                Integer currentAssignmentCode;
+                for (int i = 0; i < buttonAssignment.values().size(); i++) {
+                    currentAssignmentCode = (Integer) buttonAssignment.keySet().toArray()[i];
+                    if (e.getKeyCode() == currentAssignmentCode) {
+                        buttonAssignment.get(currentAssignmentCode).doClick();
+                    }
+                }
+            }
+        };
+    }
+
     public Execute(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
 
         //Create list of buttons
@@ -66,15 +85,18 @@ public class Execute extends JPanel {
         button7 = new JButton(" Task Manager [7] ");
         button8 = new JButton(" Update Server [8] ");
 
+        //Add empty Map of buttons assignment
+        buttonAssignment = new HashMap<Integer, JButton>();
+
         //Add all buttons to tab
-        addButtonWithPreferencesToTab(button1, "Open Application wizard", font);
-        addButtonWithPreferencesToTab(button2, "Open Audio Settings", font);
-        addButtonWithPreferencesToTab(button3, "Open Device Manager", font);
-        addButtonWithPreferencesToTab(button4, "Open Device and Printers", font);
-        addButtonWithPreferencesToTab(button5, "Open Device Metadata", font);
-        addButtonWithPreferencesToTab(button6, "Open RDP Connections", font);
-        addButtonWithPreferencesToTab(button7, "Open Device Manager", font);
-        addButtonWithPreferencesToTab(button8, "Open Update server", font);
+        addButtonWithPreferencesToTab(button1, "Open Application wizard", font, KeyEvent.VK_1);
+        addButtonWithPreferencesToTab(button2, "Open Audio Settings", font, KeyEvent.VK_2);
+        addButtonWithPreferencesToTab(button3, "Open Device Manager", font, KeyEvent.VK_3);
+        addButtonWithPreferencesToTab(button4, "Open Device and Printers", font, KeyEvent.VK_4);
+        addButtonWithPreferencesToTab(button5, "Open Device Metadata", font, KeyEvent.VK_5);
+        addButtonWithPreferencesToTab(button6, "Open RDP Connections", font, KeyEvent.VK_6);
+        addButtonWithPreferencesToTab(button7, "Open Device Manager", font, KeyEvent.VK_7);
+        addButtonWithPreferencesToTab(button8, "Open Update server", font, KeyEvent.VK_8);
 
         //Add ActionListener to all buttons
         addActionListenerToButton(button1, LinksExecute.OPEN_APPLICATION_WIZARD.getValue(), timer, tm, 2);
@@ -86,38 +108,8 @@ public class Execute extends JPanel {
         addActionListenerToButton(button1, LinksExecute.OPEN_TASK_MANAGER.getValue(), timer, tm, 2);
         addActionListenerToButton(button1, LinksExecute.OPEN_UPDATE_SERVICE.getValue(), timer, tm, 2);
 
-        //Add KeyListener for Button1 press emulation by pressing Num1 button
-        listener3 = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_1:
-                        button1.doClick();
-                        break;
-                    case KeyEvent.VK_2:
-                        button2.doClick();
-                        break;
-                    case KeyEvent.VK_3:
-                        button3.doClick();
-                        break;
-                    case KeyEvent.VK_4:
-                        button4.doClick();
-                        break;
-                    case KeyEvent.VK_5:
-                        button5.doClick();
-                        break;
-                    case KeyEvent.VK_6:
-                        button6.doClick();
-                        break;
-                    case KeyEvent.VK_7:
-                        button7.doClick();
-                        break;
-                    case KeyEvent.VK_8:
-                        button8.doClick();
-                        break;
-                }
-            }
-        };
+        //Create tab-specific KeyListener
+        listener3 = addKeyListenerToTab();
 
         //Add key Listeners to all Buttons
         button1.addKeyListener(listener3);
