@@ -1,0 +1,3 @@
+@echo appdata will be cleared....
+
+start  %localAppdata%\Corsair\CUE\logs
