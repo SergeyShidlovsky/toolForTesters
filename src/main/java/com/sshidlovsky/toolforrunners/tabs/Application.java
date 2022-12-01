@@ -6,6 +6,7 @@ import com.sshidlovsky.toolforrunners.runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Map;
 
 public class Application extends JPanel {
 
@@ -15,6 +16,7 @@ public class Application extends JPanel {
     final JButton button4;
     private JLabel tabStatusLabel;
     private KeyListener listener;
+    private Map<Integer, JButton> buttonAssignment;
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
